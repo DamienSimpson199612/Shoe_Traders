@@ -66,6 +66,7 @@
       <DependentUpon>Show_TradersDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="tstCustomer.cs" />
+    <Compile Include="tstOrderPage.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tstSupplierPage.cs" />
