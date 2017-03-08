@@ -175,35 +175,40 @@ namespace Class_Library
             }
         }
 
-        public bool Find(int staffID)
+        public bool Find(int StaffID)
         {
-            //set the private data 
-            mActive =  true ;
-            //set the private data 
-            mStaffID = 21;
-            //set the private data 
-            mFirstName = "Test First Name";
-            //set the private data 
-            mLastName = "Test Last Name";
-            //set the private data 
-            mAddress = "Test Address";
-            //set the private data 
-            mCounty = "Test County";
-            //set the private data 
-            mPostCode = "Test PostCode";
-           //set the private data 
-            mMobileNo = 0;
-            //set the private data 
-            mPayrollNo = "Test PayrollNo";
-            //set the private data 
-            mRoleType = "Test RoleType";
-            //set the private data 
-            mTrainingCompleted = "Test TrainingCompleted";
 
-            //always return true
-            return true;
+            //create an instance if the data connection
+            clsDataConnection staffDB = new clsDataConnection();
+            //add the parameter for the staffID to search for
+            staffDB.AddParameter("@StaffID", StaffID);
+            //execute the stored procedure
+            staffDB.Execute("sproc_tblStaff_FilterByStaffID");
+            //if one recird is found (there should be either one or zero)
+            if (staffDB.Count == 1)
+            {
+                //copy the data the database to the private data members
+                mActive = Convert.ToBoolean(staffDB.DataTable.Rows[0]["Active"]);
+                mStaffID = Convert.ToInt32(staffDB.DataTable.Rows[0]["StaffID"]);
+                mFirstName = Convert.ToString(staffDB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(staffDB.DataTable.Rows[0]["LasttName"]);
+                mAddress = Convert.ToString(staffDB.DataTable.Rows[0]["Address"]);
+                mCounty = Convert.ToString(staffDB.DataTable.Rows[0]["County"]);
+                mPostCode = Convert.ToString(staffDB.DataTable.Rows[0]["PostCode"]);
+                mMobileNo = Convert.ToInt32(staffDB.DataTable.Rows[0]["MobileNo"]);
+                mPayrollNo = Convert.ToString(staffDB.DataTable.Rows[0]["PayrollNo"]);
+                mRoleType = Convert.ToString(staffDB.DataTable.Rows[0]["RoleType"]);
+                mTrainingCompleted = Convert.ToString(staffDB.DataTable.Rows[0]["TrainingCompleted"]);
+                //return that everything is okay worked OK
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating problem
+                return false;
+            }
+
         }
-
-      
     }
 }

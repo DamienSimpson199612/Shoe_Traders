@@ -180,7 +180,7 @@ namespace Test_Framework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffID = 1;
+            Int32 StaffID = 21;
             //invoke the method
             Found = Staff.Find(StaffID);
             //test to see that the result is correct
