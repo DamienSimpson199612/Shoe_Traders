@@ -4,17 +4,140 @@ namespace ClassLibrary
 {
     public class clsCustomer
     {
-        public string Active { get; set; }
-        public int ContactNumber { get; set; }
-        public int CustomerID { get; set; }
-        public DateTime DateJoined { get; set; }
-        public string EmailAddress { get; set; }
-        public string Name { get; set; }
-        public string PostCode { get; set; }
+        //private data member for th ecustomer ID property
+        private Int32 mCustomerID;
+        //private data member for mName
+        private string mName;
+        //private data member for mContactNumber
+        private string mContactNumber;
+        //private data member for mAddress
+        private string mAddress;
+        //private data member for Datejoined
+        private DateTime mDateJoined;
+        //private data member for memailaddress
+        private string mEmailAddress;
+        //private data member for mPostcode
+        private string mPostCode;
+        //private data member for mActive
+        private bool mActive;
+        public bool Active
+        {
+            get
+            {
+                //return the private data
+                return mActive;
+            }
+            set
+            {
+                //set the private data
+                mActive = value;
+            }
+        }
+        public string Address
+        {
+            get
+            {
+                //return the private data
+                return mAddress;
+            }
+            set
+            {
+                //set the private data
+                mAddress = value;
+            }
+        }
+        public string ContactNumber
+        {
+            get
+            {
+                //return the private data
+                return mContactNumber;
+            }
+            set
+            {
+                //set the private data
+                mContactNumber = value;
+            }
+        }
+        public int CustomerID
+        {
+            get
+            {
+                //return the private data
+                return mCustomerID;
+            }
+            set
+            {
+                //set the private data
+                mCustomerID = value;
+            }
+        }
+        public DateTime DateJoined
+        {
+            get
+            {
+                //return the private data
+                return mDateJoined;
+            }
+            set
+            {
+                //set the private data
+                mDateJoined = value;
+            }
+        }
+        public string EmailAddress
+        {
+            get
+            {
+                //return the private data
+                return mEmailAddress;
+            }
+            set
+            {
+                //set the private data
+                mEmailAddress = value;
+            }
+        }
+        public string Name
+        {
+            get
+            {
+                //return the private data
+                return mName;
+            }
+            set
+            {
+                //set the private data
+                mName = value;
+            }
+        }
+        public string PostCode
+        {
+            get
+            {
+                //return the private data
+                return mPostCode;
+            }
+            set
+            {
+                //set the private data
+                mPostCode = value;
+            }
+        }
 
         public bool Find(Int32 CustomerID)
         {
-            // always return true
+            //set the private data members to th etest data value
+            mCustomerID = 1;
+            mName = "John Smith";
+            mAddress = "26 Highfields Street";
+            mPostCode = "LE2 0XZ";
+            mContactNumber = "07986543211";
+            mEmailAddress = "John_smith@hotmail.co.uk";
+            mDateJoined = Convert.ToDateTime("02/03/2017");
+            mActive = true;
+
+            //always return true 
             return true;
         }
 

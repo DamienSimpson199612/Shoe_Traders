@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Class_Library;
 using ClassLibrary;
+//using ClassLibrary;
 
 namespace tstLog_CustomerList
 {
@@ -24,9 +24,9 @@ namespace tstLog_CustomerList
             //create some data to assign to the property
             string TestData = "123 High Street";
             //assign the data to the property
-            Customer.Active = TestData;
+            Customer.Address = TestData;
             //test to see that the two values are th esame
-            Assert.AreEqual(Customer.Active, TestData);
+            Assert.AreEqual(Customer.Address, TestData);
         }
         [TestMethod]
         public void ContactNumber()
@@ -34,7 +34,7 @@ namespace tstLog_CustomerList
             //create an instance of the class we want to create 
             clsCustomer Customer = new clsCustomer();
             //create some data to assign to the property
-            Int32 TestData = 1;
+            string TestData = "07986543212";
             //assign the data to the property
             Customer.ContactNumber = TestData;
             //test to see that the two values are th esame
@@ -1130,6 +1130,181 @@ namespace tstLog_CustomerList
             //invoke the method
             Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the customer id 
+            if (ACustomer.CustomerID != 1)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestNameFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.Name != "John Smith")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.Address != "26 Highfields Street")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestContactNumberFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.ContactNumber != "07986543211")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.PostCode != "LE2 0XZ")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestEmailAddressFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.EmailAddress != "John_smith@hotmail.co.uk")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestDateJoinedFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.DateJoined != Convert.ToDateTime("02/03/2017"))
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.Active != true)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
         }
     }
 }
