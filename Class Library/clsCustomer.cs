@@ -12,16 +12,17 @@ namespace ClassLibrary
         public string Name { get; set; }
         public string PostCode { get; set; }
 
-        public bool Find(string postCode)
+        public bool Find(Int32 CustomerID)
         {
-            //always return true
+            // always return true
             return true;
         }
 
-        public bool Valid(int customerID, string name, string address)
+        public bool Valid(string name, string address, string postcode, string contactnumber, string emailaddress, string dateJoined)
         {
             // boolean variable
             Boolean Ok = true;
+            DateTime DateTemp;
             if (name.Length == 0)
             {
                 Ok = false;
@@ -47,6 +48,65 @@ namespace ClassLibrary
             {
                 Ok = false;
             }
+
+            try
+            {
+                DateTemp = Convert.ToDateTime(dateJoined);
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    Ok = false;
+                }
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    Ok = false;
+                }
+
+            }
+            catch
+            {
+                Ok = false;
+            }
+
+            if (postcode.Length == 0)
+            {
+                Ok = false;
+            }
+            if (postcode.Length < 6)
+            {
+                Ok = false;
+            }
+            if (postcode.Length > 12)
+            {
+                Ok = false;
+            }
+            if (contactnumber.Length == 0)
+            {
+                Ok = false;
+            }
+            if (contactnumber.Length < 11)
+            {
+                Ok = false;
+            }
+            if (contactnumber.Length > 14)
+            {
+                Ok = false;
+            }
+
+            if (emailaddress.Length == 0)
+            {
+                Ok = false;
+            }
+            if (emailaddress.Length < 10)
+            {
+                Ok = false;
+            }
+            if (emailaddress.Length > 40)
+            {
+                Ok = false;
+            }
+
+
+
             return Ok;
         }
     }
