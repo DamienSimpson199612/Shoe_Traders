@@ -355,7 +355,7 @@ namespace Test_Framework
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.MobileNo != 0)
+            if (Staff.MobileNo != 1)
             {
                 OK = false;
             }

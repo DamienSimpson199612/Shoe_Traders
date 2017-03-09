@@ -107,7 +107,7 @@ namespace MyClassLibrary
             mOrderDate = Convert.ToDateTime("16/02/2016");
             mCustomerName = "Jhon Wick";
             mActive = true;
-            mCustomerNo = Convert.ToInt32("1");
+            mCustomerNo = 1;
             mNumberOfOrder = 1;
 
           

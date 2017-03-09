@@ -93,5 +93,152 @@ namespace Test_Framework
             //test to see it exists
             Assert.AreEqual(NewStock.Colour, TestData);
         }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class clsStock
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //test to see it exists
+            Assert.IsTrue(Found);
+        }
+
+        [TestMethod]
+        public void TestStockIDFound()
+        {
+            //create an instance of the class we want to create
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //check the stock id
+            if (NewStock.StockID != 1)
+            {
+                OK = false;
+            }
+            //test to see it exists
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestSizeFound()
+        {
+            //create an instance of the class we want to create
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //check the stock id
+            if (NewStock.Size != 8)
+            {
+                OK = false;
+            }
+            //test to see it exists
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestStockAmountFound()
+        {
+            //create an instance of the class we want to create
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //check the stock id
+            if (NewStock.StockAmount != 100)
+            {
+                OK = false;
+            }
+            //test to see it exists
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestBrandFound()
+        {
+            //create an instance of the class we want to create
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //check the stock id
+            if (NewStock.Brand != "Nike")
+            {
+                OK = false;
+            }
+            //test to see it exists
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestShoeNameFound()
+        {
+            //create an instance of the class we want to create
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //check the stock id
+            if (NewStock.ShoeName != "Max 13")
+            {
+                OK = false;
+            }
+            //test to see it exists
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void TestColourFound()
+        {
+            //create an instance of the class we want to create
+            clsStock NewStock = new clsStock();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = true;
+            //create some test data to assign to the property
+            Int32 StockID = 1;
+            //invoke the method
+            Found = NewStock.Find(StockID);
+            //check the stock id
+            if (NewStock.Colour != "Black")
+            {
+                OK = false;
+            }
+            //test to see it exists
+            Assert.IsTrue(OK);
+        }
     }
 }

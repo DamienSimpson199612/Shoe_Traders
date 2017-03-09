@@ -183,7 +183,7 @@ namespace Class_Library
             //add the parameter for the staffID to search for
             staffDB.AddParameter("@StaffID", StaffID);
             //execute the stored procedure
-            staffDB.Execute("sproc_tblStaff_FilterByStaffID");
+            staffDB.Execute("sproc_Staff_FilterByStaffID");
             //if one recird is found (there should be either one or zero)
             if (staffDB.Count == 1)
             {
@@ -191,7 +191,7 @@ namespace Class_Library
                 mActive = Convert.ToBoolean(staffDB.DataTable.Rows[0]["Active"]);
                 mStaffID = Convert.ToInt32(staffDB.DataTable.Rows[0]["StaffID"]);
                 mFirstName = Convert.ToString(staffDB.DataTable.Rows[0]["FirstName"]);
-                mLastName = Convert.ToString(staffDB.DataTable.Rows[0]["LasttName"]);
+                mLastName = Convert.ToString(staffDB.DataTable.Rows[0]["LastName"]);
                 mAddress = Convert.ToString(staffDB.DataTable.Rows[0]["Address"]);
                 mCounty = Convert.ToString(staffDB.DataTable.Rows[0]["County"]);
                 mPostCode = Convert.ToString(staffDB.DataTable.Rows[0]["PostCode"]);

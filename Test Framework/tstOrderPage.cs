@@ -198,7 +198,7 @@ namespace UnitTestProject
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the orderno No
-            if (AnOrder.DateAdded != Convert.ToDateTime(16 / 02 / 2016))
+            if (AnOrder.DateAdded != Convert.ToDateTime("16/02/2016"))
             {
                 OK = false;
             }
