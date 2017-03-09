@@ -11,7 +11,12 @@ namespace MyClassLibrary
         }
 
         public bool Active { get; set; }
+        public string Address { get; set; }
+        public DateTime DateAdded { get; set; }
         public DateTime DeliveryDate { get; set; }
+        public string SupplierName { get; set; }
+        public int SupplierNo { get; set; }
+        public int TelephoneNo { get; set; }
 
         public bool Valid(int numOfSupplier, DateTime DeliveryDate)
         {
@@ -51,5 +56,14 @@ namespace MyClassLibrary
             return Ok;
 
         }
-    }
+
+        public bool Find(int AddressNo)
+        {
+            //always return true
+
+            return true;
+
+             }
+    
+        }
 }

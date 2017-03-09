@@ -92,5 +92,86 @@ namespace MyTestFramework
             Assert.AreEqual(ASupplier.Active, TestData);
 
         }
+        [TestMethod]
+        public void DateAddedPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //create some test data to assign to the property
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data of the property
+            ASupplier.DateAdded = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ASupplier.DateAdded, TestData);
+
+        }
+
+        [TestMethod]
+        public void SupplierNoPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            ASupplier.SupplierNo = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ASupplier.SupplierNo, TestData);
+        }
+
+        [TestMethod]
+        public void AddressPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //create some test data to assign to the property
+            string TestData = "An Address";
+            //assign the data to the property
+            ASupplier.Address = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ASupplier.Address, TestData);
+        }
+
+
+        [TestMethod]
+        public void SupplierNamePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //create some test data to assign to the property
+            string TestData = "A Name";
+            //assign the data to the property
+            ASupplier.SupplierName = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ASupplier.SupplierName, TestData);
+        }
+
+        [TestMethod]
+        public void TelephonePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //create some test data to assign to the property
+            Int32 TestData = 1;
+            //assign the data to the property
+            ASupplier.TelephoneNo = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(ASupplier.TelephoneNo, TestData);
+        }
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to use with the method
+            Int32 SupplierNo = 34;
+            //invoke the method
+            Found = ASupplier.Find(SupplierNo);
+            //test to see that the result is correct
+            Assert.IsTrue(Found);
+        }
     }
 }
