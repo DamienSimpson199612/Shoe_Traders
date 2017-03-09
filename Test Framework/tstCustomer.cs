@@ -1,13 +1,13 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Class_Library;
 using ClassLibrary;
+//using ClassLibrary;
 
-namespace Test_Framework
+namespace tstLog_CustomerList
 {
     [TestClass]
-    public class tstCustomer
-    { 
+    public class SprintLog_Customer
+    {
         [TestMethod]
         public void InstanceOK()
         {
@@ -24,9 +24,9 @@ namespace Test_Framework
             //create some data to assign to the property
             string TestData = "123 High Street";
             //assign the data to the property
-            Customer.Active = TestData;
+            Customer.Address = TestData;
             //test to see that the two values are th esame
-            Assert.AreEqual(Customer.Active, TestData);
+            Assert.AreEqual(Customer.Address, TestData);
         }
         [TestMethod]
         public void ContactNumber()
@@ -34,7 +34,7 @@ namespace Test_Framework
             //create an instance of the class we want to create 
             clsCustomer Customer = new clsCustomer();
             //create some data to assign to the property
-            Int32 TestData = 1;
+            string TestData = "07986543212";
             //assign the data to the property
             Customer.ContactNumber = TestData;
             //test to see that the two values are th esame
@@ -108,9 +108,9 @@ namespace Test_Framework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some data to use with the method
-            string PostCode = "LE1 1SG";
+            Int32 CustomerID = 1;
             //invoke the method
-            Found = Customer.Find(PostCode);
+            Found = Customer.Find(CustomerID);
             //test tto see that the reuslt is correct
             Assert.IsTrue(Found);
         }
@@ -118,18 +118,22 @@ namespace Test_Framework
         public void ValidMethodOK()
         {
             //create an instance of the class we want to create 
-            clsCustomer Customer = new clsCustomer();
+            clsCustomer ACustomer = new clsCustomer();
             //boolean variable to store the result of the validation
-            Boolean OK = false;
+            Boolean Ok = false;
             //create some data to use with the method
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "123 High Street";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            OK = Customer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test tto see that the reuslt is correct
-            Assert.IsTrue(OK);
+            Assert.IsTrue(Ok);
         }
+
         [TestMethod]
         public void NameMinBoundary()
         {
@@ -138,13 +142,36 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "123 High Street";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void NameMinimumMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qay";
+            string Address = "123 High Street";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
         }
 
         [TestMethod]
@@ -155,11 +182,14 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "123 High Street";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -175,9 +205,12 @@ namespace Test_Framework
             string Name = "";
             Name = Name.PadRight(35, 'a');
             string Address = "123 High Street";
-            Int32 CustomerID = 11;
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -193,9 +226,12 @@ namespace Test_Framework
             string Name = "";
             Name = Name.PadRight(36, 'a');
             string Address = "123 High Street";
-            Int32 CustomerID = 11;
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -211,9 +247,12 @@ namespace Test_Framework
             string Name = "";
             Name = Name.PadRight(37, 'a');
             string Address = "123 High Street";
-            Int32 CustomerID = 11;
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsFalse(Ok);
         }
@@ -228,9 +267,12 @@ namespace Test_Framework
             string Name = "";
             Name = Name.PadRight(18, 'a');
             string Address = "123 High Street";
-            Int32 CustomerID = 11;
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -246,12 +288,36 @@ namespace Test_Framework
             string Name = "";
             Name = Name.PadRight(100, 'a');
             string Address = "123 High Street";
-            Int32 CustomerID = 11;
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsFalse(Ok);
         }
+
+        [TestMethod]
+        public void AddressMinimumMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "a";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
         [TestMethod]
         public void AddressMinBoundary()
         {
@@ -260,11 +326,14 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "aa";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -276,11 +345,14 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "aaa";
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -292,12 +364,15 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "";
             Address = Address.PadRight(25, 'a');
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -310,12 +385,15 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "";
             Address = Address.PadRight(26, 'a');
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -328,12 +406,15 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "";
             Address = Address.PadRight(27, 'a');
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsFalse(Ok);
         }
@@ -345,12 +426,15 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "";
             Address = Address.PadRight(13, 'a');
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsTrue(Ok);
         }
@@ -363,14 +447,864 @@ namespace Test_Framework
             // boolean variable to store the result of the validation 
             Boolean Ok = false;
             //create some test data to assign to the property
-            Int32 CustomerID = 11;
             string Name = "qayz";
             string Address = "";
             Address = Address.PadRight(300, 'a');
+            string Postcode = "Le3 5fa";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
             //invoke the method
-            Ok = ACustomer.Valid(CustomerID, Name, Address);
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
             //test to see that the result is correct
             Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void PostcodeMinMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "L3 5f";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+        [TestMethod]
+        public void PostcodeMinBoundary()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "LE35SF";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void PostcodeMinPlusOne()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "LE135SF";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void PostcodeMaxMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "LE13 35SGGF";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void PostcodeMaxBoundary()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "LE13 SA35SSF";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void PostcodeMaxPlus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "LE13 SX3X5SSF";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void PostcodeMid()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "LE1X4X";
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void PostcodeExtremeMax()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "";
+            Postcode = Postcode.PadRight(40, 'a');
+            string ContactNumber = "07732785042";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void ContactNumberMinMius1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "0773278502";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void ContactNumberMinimumBoaundary()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733278502";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void ContactNumberMinPlus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "077332748502";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void ContactNumberMaxMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "0773327485";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+        [TestMethod]
+        public void ContactNumberMaximum()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733274888532";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void ContactNumberMaximumPlus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "077332748584322";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void ContactNumberMid()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "0773327";
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void ContactNumberExtremeMax()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "";
+            ContactNumber = ContactNumber.PadRight(100, '0');
+            string EmailAddress = "high_123@hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void EmailAddressMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.c";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+        [TestMethod]
+        public void EmailAddressMinimumBoundary()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void EmailAddressMinPlus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.com";
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void EmailAddressMaxMinus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "";
+            EmailAddress = EmailAddress.PadRight(39, 'a');
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void EmailAddressMaxBoundary()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "";
+            EmailAddress = EmailAddress.PadRight(40, 'a');
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void EmailAddressMaxPlus1()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "";
+            EmailAddress = EmailAddress.PadRight(41, 'a');
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void EmailAddressMid()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "";
+            EmailAddress = EmailAddress.PadRight(20, 'a');
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void EmailAddressExtremeMax()
+        {
+            //create instance of the class we want to create
+            clsCustomer ACustomer = new clsCustomer();
+            // boolean variable to store the result of the validation 
+            Boolean Ok = false;
+            //create some test data to assign to the property
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "";
+            EmailAddress = EmailAddress.PadRight(100, 'a');
+            string DateJoined = DateTime.Now.Date.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            //test to see that the result is correct
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void DateJoinedMinLessOne()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //set to yesterdays day
+            TestDate = TestDate.AddDays(-1);
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsFalse(Ok);
+        }
+        [TestMethod]
+        public void DateJoinedMinimumBoundary()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void DateJoinedMinPlus1()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //set to tomorrows date
+            TestDate = TestDate.AddDays(1);
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsFalse(Ok);
+        }
+        [TestMethod]
+        public void DateJoinedMaxMinus1()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //set to tomorrows date
+            TestDate = TestDate.AddDays(-1);
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsFalse(Ok);
+        }
+        public void DateJoinedMaximumBoundary()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void DateJoinedMaxPlus1()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //set to tomorrows date
+            TestDate = TestDate.AddDays(1);
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void DateJoinedMid()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void DateJoinedExtremeMax()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Ok = false;
+            //create some that data that passes 
+            string Name = "qayz";
+            string Address = "aa";
+            string Postcode = "Le1 1fs";
+            string ContactNumber = "07733567827";
+            string EmailAddress = "hotmail.co";
+            //var to store the date
+            DateTime TestDate;
+            //set to todays date
+            TestDate = DateTime.Now.Date;
+            //change the dat eto whatevrr the date is plus 100 years
+            TestDate = TestDate.AddYears(100);
+            //convert the data to string
+            string DateJoined = TestDate.ToString();
+            //invoke the method
+            Ok = ACustomer.Valid(Name, Address, Postcode, ContactNumber, EmailAddress, DateJoined);
+            Assert.IsFalse(Ok);
+        }
+
+        [TestMethod]
+        public void TestCustomerIDFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the customer id 
+            if (ACustomer.CustomerID != 1)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestNameFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.Name != "John Smith")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestAddressFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.Address != "26 Highfields Street")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestContactNumberFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.ContactNumber != "07986543211")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+        [TestMethod]
+        public void TestPostCodeFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.PostCode != "LE2 0XZ")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestEmailAddressFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.EmailAddress != "John_smith@hotmail.co.uk")
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestDateJoinedFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.DateJoined != Convert.ToDateTime("02/03/2017"))
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
+        }
+
+        [TestMethod]
+        public void TestActiveFound()
+        {
+            //create an instance of the class we want to create 
+            clsCustomer ACustomer = new clsCustomer();
+            //boolean variable to store the results
+            Boolean Found = false;
+            //boolean variable to record if idata is ok(assume it is)
+            Boolean Ok = true;
+            //create some test data to use with the method
+            Int32 CustomerID = 1;
+            //invoke the method
+            Found = ACustomer.Find(CustomerID);
+            //check the proeperty 
+            if (ACustomer.Active != true)
+            {
+                Ok = false;
+            }
+            //test to see that the result is correct
+            Assert.IsTrue(Ok);
         }
     }
 }

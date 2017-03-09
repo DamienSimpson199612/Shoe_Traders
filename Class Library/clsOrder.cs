@@ -6,6 +6,16 @@ namespace MyClassLibrary
     {
         //private data member for order No
         private Int32 mOrderNo;
+        //private data member for Active
+        private Boolean mActive;
+        //private data member for date added
+        private DateTime mOrderDate;
+        //private data member for customername
+        private string mCustomerName;
+        //private data member customerno
+        private int mCustomerNo;
+       //private data 
+            private int mNumberOfOrder;
         public clsOrder()
         {
 
@@ -24,19 +34,83 @@ namespace MyClassLibrary
             }
         }
 
-        public bool Active { get; set; }
-        public string CustomerName { get; set; }
-        public int CustomerNo { get; set; }
-        public DateTime DateAdded { get; set; }
-        public int NumberOfOrder { get; set; }
+        public bool Active
+        {
+            get
+            {
+                //return the private data
+                return mActive;
+            }
+            set
+            {
+                //set private data member
+                mActive = value;
+            }
+        }
+        public string CustomerName
+        {
+            get
+            {
+                return mCustomerName;
+            }
+            set
+            {
+                //set private data member
+                mCustomerName = value;
+            }
+        }
+
+        public int CustomerNo {
+            get
+            {
+                return mCustomerNo;
+            }
+            set
+            {
+                //set private data member
+                mCustomerNo = value;
+
+            }
+                }
+        public DateTime DateAdded
+        {
+            get
+            {
+                return mOrderDate;
+            }
+            set
+            {
+                //set private data member
+                mOrderDate = value;
+            }
+        }
+        public int NumberOfOrder
+        {
+            get
+            {
+                return mNumberOfOrder;
+            }
+            set
+            {
+                //set private data member
+                mNumberOfOrder = value;
+            }
+        }
 
 
-        public int Price { get; set; }
+       
 
         public bool Find(int OrderNo)
         {
             //set private data member to test the data value
-            mOrderNo = 21;
+            mOrderNo = 1;
+            mOrderDate = Convert.ToDateTime("16/02/2016");
+            mCustomerName = "Jhon Wick";
+            mActive = true;
+            mCustomerNo = Convert.ToInt32("1");
+            mNumberOfOrder = 1;
+
+          
             //always return value
             return true;
         }
