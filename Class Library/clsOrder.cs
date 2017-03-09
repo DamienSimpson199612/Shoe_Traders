@@ -63,7 +63,7 @@ namespace MyClassLibrary
         public int CustomerNo {
             get
             {
-                return CustomerNo;
+                return mCustomerNo;
             }
             set
             {
