@@ -19,7 +19,7 @@ namespace Class_Library
         //private data member for the StaffID property
         private String mCounty;
         //private data member for the StaffID property
-        private Int32 mMobileNo;
+        private String mMobileNo;
         //private data member for the StaffID property
         private String mPayrollNo;
         //private data member for the StaffID property
@@ -44,7 +44,8 @@ namespace Class_Library
         }
 
 
-        public bool Active {
+        public bool Active
+        {
             get
             { //return the private data 
                 return mActive;
@@ -82,7 +83,8 @@ namespace Class_Library
             }
         }
 
-        public string Address {
+        public string Address
+        {
             get
             { //return the private data 
                 return mAddress;
@@ -123,8 +125,8 @@ namespace Class_Library
         }
 
 
-      
-        public int MobileNo
+
+        public string MobileNo
         {
             get
             { //return the private data 
@@ -148,7 +150,7 @@ namespace Class_Library
                 mPayrollNo = value;
             }
         }
-       
+
         public string RoleType
         {
             get
@@ -161,7 +163,7 @@ namespace Class_Library
                 mRoleType = value;
             }
         }
-       
+
         public string TrainingCompleted
         {
             get
@@ -195,7 +197,7 @@ namespace Class_Library
                 mAddress = Convert.ToString(staffDB.DataTable.Rows[0]["Address"]);
                 mCounty = Convert.ToString(staffDB.DataTable.Rows[0]["County"]);
                 mPostCode = Convert.ToString(staffDB.DataTable.Rows[0]["PostCode"]);
-                mMobileNo = Convert.ToInt32(staffDB.DataTable.Rows[0]["MobileNo"]);
+                mMobileNo = Convert.ToString(staffDB.DataTable.Rows[0]["MobileNo"]);
                 mPayrollNo = Convert.ToString(staffDB.DataTable.Rows[0]["PayrollNo"]);
                 mRoleType = Convert.ToString(staffDB.DataTable.Rows[0]["RoleType"]);
                 mTrainingCompleted = Convert.ToString(staffDB.DataTable.Rows[0]["TrainingCompleted"]);
@@ -210,5 +212,119 @@ namespace Class_Library
             }
 
         }
+
+        public bool Valid(string firstName, string lastName, string address, string postcode, string mobileNo, string payrollNo, string roleType, string trainingCompleted)
+        {
+            // boolean variable
+            Boolean Ok = true;
+
+
+            if (FirstName.Length < 1)
+            {
+                Ok = false;
+            }
+            if (FirstName.Length > 50)
+            {
+                Ok = false;
+            }
+
+            if (LastName.Length < 2)
+            {
+                Ok = false;
+            }
+            if (LastName.Length > 50)
+            {
+                Ok = false;
+            }
+
+            //if (Address.Length == 0)
+            //{
+            //    Ok = false;
+            //}
+            if (Address.Length < 2)
+            {
+                Ok = false;
+            }
+            if (Address.Length > 50)
+            {
+                Ok = false;
+            }
+
+
+            if (MobileNo.Length < 11)
+            {
+                Ok = false;
+            }
+            if (MobileNo.Length > 15)
+            {
+                Ok = false;
+            }
+
+            //if (PostCode.Length == 0)
+            //{
+            //    Ok = false;
+            //}
+            if (PostCode.Length < 6)
+            {
+                Ok = false;
+            }
+            if (PostCode.Length > 12)
+            {
+                Ok = false;
+            }
+           // if (MobileNo.Length == 0)
+           // {
+           //     Ok = false;
+           // }
+            if (MobileNo.Length < 11)
+            {
+                Ok = false;
+            }
+            if (MobileNo.Length > 14)
+            {
+                Ok = false;
+            }
+            //if (PayrollNo.Length == 0)
+            //{
+            //    Ok = false;
+            //}
+            if (PayrollNo.Length < 1)
+            {
+                Ok = false;
+            }
+            if (PayrollNo.Length > 10)
+            {
+                Ok = false;
+            }
+            //if (RoleType.Length == 0)
+            //{
+            //    Ok = false;
+            //}
+            if (RoleType.Length < 1)
+            {
+                Ok = false;
+            }
+            if (RoleType.Length > 50)
+            {
+                Ok = false;
+            }
+            //if (TrainingCompleted.Length == 0)
+            //{
+            //    Ok = false;
+            //}
+            if (TrainingCompleted.Length < 1)
+            {
+                Ok = false;
+            }
+            if (TrainingCompleted.Length > 500)
+            {
+                Ok = false;
+            }
+
+
+
+            return Ok;
+        }
     }
-}
+    }
+

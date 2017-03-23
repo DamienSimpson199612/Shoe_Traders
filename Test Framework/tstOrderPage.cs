@@ -105,8 +105,8 @@ namespace UnitTestProject
             //test to see the two halves are the same
             Assert.AreEqual(AnOrder.CustomerNo, TestData);
         }
-        
-        
+
+
         [TestMethod]
         public void FindMethodOK()
         {
@@ -142,27 +142,7 @@ namespace UnitTestProject
             //TEST TO SEE WHAT IS CORRECT
             Assert.IsTrue(OK);
         }
-        [TestMethod]
-        public void TestPricePropertyFound()
-        {
-            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
-            clsOrder AnOrder = new clsOrder();
-            //boolean variable to store the result of the validation
-            Boolean Found = false;
-            //create some data to use with the method
-            Boolean OK = true;
-            //invoke the method
-            Int32 OrderNo = 21;
-            //invoke the method
-            Found = AnOrder.Find(OrderNo);
-            //check the address No
-            if (AnOrder.OrderNo != 1)
-            {
-                OK = false;
-            }
-            //TEST TO SEE WHAT IS CORRECT
-            Assert.IsTrue(OK);
-        }
+
         [TestMethod]
         public void TestActiveFound()
         {
@@ -173,7 +153,7 @@ namespace UnitTestProject
             //create some data to use with the method
             Boolean OK = true;
             //invoke the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 1;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the orderno No
@@ -237,7 +217,7 @@ namespace UnitTestProject
             //create some data to use with the method
             Boolean OK = true;
             //invoke the method
-            Int32 OrderNo = 21;
+            Int32 OrderNo = 1;
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
@@ -262,17 +242,60 @@ namespace UnitTestProject
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the property
-            if (AnOrder.OrderNo !=1)
+            if (AnOrder.OrderNo != 1)
             {
                 OK = false;
             }
             //TEST TO SEE WHAT IS CORRECT
             Assert.IsTrue(OK);
         }
- 
-        
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+           
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void OrderNoMinLessOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+           
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsFalse(OK);
+
+        }
+       
+     
+       
+       
+
+        }
     }
-}
+
 
 
 

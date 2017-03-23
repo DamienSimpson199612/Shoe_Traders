@@ -14,8 +14,8 @@ namespace MyClassLibrary
         private string mCustomerName;
         //private data member customerno
         private int mCustomerNo;
-       //private data 
-            private int mNumberOfOrder;
+        //private data 
+        private int mNumberOfOrder;
         public clsOrder()
         {
 
@@ -60,7 +60,8 @@ namespace MyClassLibrary
             }
         }
 
-        public int CustomerNo {
+        public int CustomerNo
+        {
             get
             {
                 return mCustomerNo;
@@ -71,7 +72,7 @@ namespace MyClassLibrary
                 mCustomerNo = value;
 
             }
-                }
+        }
         public DateTime DateAdded
         {
             get
@@ -98,21 +99,49 @@ namespace MyClassLibrary
         }
 
 
-       
+
 
         public bool Find(int OrderNo)
-        {
-            //set private data member to test the data value
-            mOrderNo = 1;
-            mOrderDate = Convert.ToDateTime("16/02/2016");
-            mCustomerName = "Jhon Wick";
-            mActive = true;
-            mCustomerNo = 1;
-            mNumberOfOrder = 1;
 
-          
-            //always return value
-            return true;
+        {
+            //create an instance of the data connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the paramerter for the address no to search for
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            //If one record is found should be one or zero
+            if (DB.Count == 1)
+
+            {
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mNumberOfOrder = Convert.ToInt32(DB.DataTable.Rows[0]["NumberOfOrder"]);
+                
+                //always return value
+                return true;
+            }
+            //if no record was found
+            else
+            {
+                //return false indicate problem
+                return false;
+            }
+        }
+
+        public bool Valid(string orderDate, string customerName, string customerNo, string numberOfOrder)
+        {
+            //create a boolean varibale flag an error
+            Boolean OK = true;
+            //IF the HouseNo is blank
+            if (CustomerName.Length == 0)
+            {
+                OK = false;
+            }
+            return OK;
         }
     }
 }
