@@ -2,12 +2,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ClassLibrary;
 using System.Collections.Generic;
-using Class_Library;
 
-namespace Test_Framework
+namespace tstCustomerCollection
 {
     [TestClass]
-    public class tstCustomerCollection
+    public class UnitTestCustomerCollection
     {
         [TestMethod]
         public void InstanceOk()
@@ -231,35 +230,36 @@ namespace Test_Framework
 
         }
 
+        //[TestMethod]
+        //public void FilterByCustomerIDMethodOk()
+        //{
+        //    //create an instance of the class containing unfiltered results 
+        //    clsCustomerCollection AllCustomers = new clsCustomerCollection();
+        //    //create an instance of the filtered data 
+        //    clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
+        //    //apply a blank string (should return all records)
+        //    FilteredCustomer.FilterByCustomerID(4);
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(AllCustomers.Count, FilteredCustomer.Count);
+
+        //}
+
+
         [TestMethod]
-        public void FilterByPostCodeMethodOk()
+        public void FilterByCustomerIDNoneFound()
         {
-            //create an instance of the class containing unfiltered results 
-            clsCustomerCollection AllCustomers = new clsCustomerCollection();
+
             //create an instance of the filtered data 
             clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
             //apply a blank string (should return all records)
-            FilteredCustomer.FilterByPostCode("");
-            //test to see that the two values are the same
-            Assert.AreEqual(AllCustomers.Count, FilteredCustomer.Count);
-
-        }
-
-        [TestMethod]
-        public void FilterByPostCodeNoneFound()
-        {
-
-            //create an instance of the filtered data 
-            clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
-            //apply a blank string (should return all records)
-            FilteredCustomer.FilterByPostCode("xxxxxxxx");
+            FilteredCustomer.FilterByCustomerID(1);
             //test to see that the two values are the same
             Assert.AreEqual(0, FilteredCustomer.Count);
 
         }
 
         [TestMethod]
-        public void FilterByPostCodeTestDataFound()
+        public void FilterByCustomerIDTestDataFound()
         {
 
             //create an instance of the filtered data 
@@ -267,7 +267,7 @@ namespace Test_Framework
             //var to store outcome
             Boolean OK = true;
             //apply a last name that doesnt exist
-            FilteredCustomer.FilterByPostCode("yyy yyy");
+            FilteredCustomer.FilterByCustomerID(2);
             //check that the correct number of records are found
             if (FilteredCustomer.Count == 2)
             {

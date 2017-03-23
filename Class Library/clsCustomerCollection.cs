@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
-using ClassLibrary;
 
-namespace Class_Library
+namespace ClassLibrary
 {
     public class clsCustomerCollection
     {
@@ -57,35 +56,13 @@ namespace Class_Library
 
         public clsCustomerCollection()
         {
-            // var for the index 
-            Int32 Index = 0;
-            //var to store the record count 
-            Int32 RecordCount = 0;
+
             //object for data connection 
             clsDataConnection DB = new clsDataConnection();
             // excute the stored procedure
             DB.Execute("sproc_Customers_SelectAll");
-            //get the count of records 
-            RecordCount = DB.Count;
-            //while there are records to process 
-            while (Index < RecordCount)
-            {
-                //create a blank customer 
-                clsCustomer ACustomer = new clsCustomer();
-                //read in the files from the current record 
-                ACustomer.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                ACustomer.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
-                ACustomer.ContactNumber = Convert.ToString(DB.DataTable.Rows[Index]["ContactNumber"]);
-                ACustomer.PostCode = Convert.ToString(DB.DataTable.Rows[Index]["PostCode"]);
-                ACustomer.Name = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
-                ACustomer.EmailAddress = Convert.ToString(DB.DataTable.Rows[Index]["EmailAddress"]);
-                ACustomer.DateJoined = Convert.ToDateTime(DB.DataTable.Rows[Index]["DateJoined"]);
-                ACustomer.CustomerID = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerID"]);
-                //add the record to the private data mamber 
-                mCustomerList.Add(ACustomer);
-                //point at the next record 
-                Index++;
-            }
+            //populate th earray list with the data table
+            PopulateArray(DB);
         }
 
         public int Add()
@@ -134,15 +111,15 @@ namespace Class_Library
             DB.Execute("sproc_Customers_Update");
         }
 
-        public void FilterByPostCode(string PostCode)
+        public void FilterByCustomerID(int CustomerID)
         {
             //filters the record based on a full or partial postcode
             //connect to the database 
             clsDataConnection DB = new clsDataConnection();
             //send the lastname parameter to the database
-            DB.AddParameter("@PostCode", PostCode);
+            DB.AddParameter("@CustomerID", CustomerID);
             //execute the stored procedure
-            DB.Execute("sproc_Customers_FilterByPostCode");
+            DB.Execute("sproc_Customers_FilterByCustomerID");
             //populate the array list with data table 
             PopulateArray(DB);
         }
@@ -181,4 +158,3 @@ namespace Class_Library
         }
     }
 }
-

@@ -6,7 +6,7 @@ using ClassLibrary;
 namespace tstLog_CustomerList
 {
     [TestClass]
-    public class SprintLog_Customer
+    public class UnitTestCustomer
     {
         [TestMethod]
         public void InstanceOK()
@@ -108,7 +108,7 @@ namespace tstLog_CustomerList
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = Customer.Find(CustomerID);
             //test tto see that the reuslt is correct
@@ -1142,11 +1142,11 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the customer id 
-            if (ACustomer.CustomerID != 1)
+            if (ACustomer.CustomerID != 2)
             {
                 Ok = false;
             }
@@ -1164,11 +1164,11 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
-            if (ACustomer.Name != "John Smith")
+            if (ACustomer.Name != "Johnathan Smith")
             {
                 Ok = false;
             }
@@ -1186,11 +1186,11 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
-            if (ACustomer.Address != "26 Highfields Street")
+            if (ACustomer.Address != "26 High Street")
             {
                 Ok = false;
             }
@@ -1208,7 +1208,7 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
@@ -1229,11 +1229,11 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
-            if (ACustomer.PostCode != "LE2 0XZ")
+            if (ACustomer.PostCode != "LE3 1JK")
             {
                 Ok = false;
             }
@@ -1251,11 +1251,11 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
-            if (ACustomer.EmailAddress != "John_smith@hotmail.co.uk")
+            if (ACustomer.EmailAddress != "John23_smith@hotmail.co.uk")
             {
                 Ok = false;
             }
@@ -1273,11 +1273,11 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 2;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
-            if (ACustomer.DateJoined != Convert.ToDateTime("02/03/2017"))
+            if (ACustomer.DateJoined != Convert.ToDateTime("14/03/2017"))
             {
                 Ok = false;
             }
@@ -1295,7 +1295,7 @@ namespace tstLog_CustomerList
             //boolean variable to record if idata is ok(assume it is)
             Boolean Ok = true;
             //create some test data to use with the method
-            Int32 CustomerID = 1;
+            Int32 CustomerID = 21;
             //invoke the method
             Found = ACustomer.Find(CustomerID);
             //check the proeperty 
