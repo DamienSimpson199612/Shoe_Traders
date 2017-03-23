@@ -408,6 +408,26 @@ namespace UnitTestProject
             Assert.IsTrue(OK);
 
         }
+        [TestMethod]
+        public void CustomerNameExtremeMax()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+            string CustomerName="";
+            string OrderDate = DateTime.Now.Date.ToString();
+            CustomerName=CustomerName.PadRight(50, 'a');
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+
+        }
     }
 }
 

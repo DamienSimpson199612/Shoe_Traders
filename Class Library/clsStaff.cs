@@ -213,7 +213,7 @@ namespace Class_Library
 
         }
 
-        public bool Valid(string FirstName, string LastName, string Address, string Postcode, string MobileNo, string PayrollNo, string RoleType, string TrainingCompleted)
+        public bool Valid(string FirstName, string LastName, string Address, string Postcode, string County, string MobileNo, string PayrollNo, string RoleType, string TrainingCompleted)
         {
             // boolean variable
             Boolean Ok = true;
@@ -235,25 +235,14 @@ namespace Class_Library
                 Ok = false;
             }
 
-            //if (Address.Length < 1)
-            //{
-            //    Ok = false;
-            //}
-            //if (Address.Length > 50)
-            //{
-            //    Ok = false;
-            //}
-
-
-            //if (MobileNo.Length < 11)
-            //{
-            //    Ok = false;
-            //}
-            //if (MobileNo.Length > 12)
-            //{
-            //    Ok = false;
-            //}
-
+            if (Address.Length < 1)
+            {
+                Ok = false;
+            }
+            if (Address.Length > 50)
+            {
+                Ok = false;
+            }
 
             //if (PostCode.Length < 1)
             //{
@@ -263,6 +252,27 @@ namespace Class_Library
             //{
             //    Ok = false;
             //}
+
+            //if (County.Length < 1)
+            //{
+            //    Ok = false;
+            //}
+            //if (County.Length > 7)
+            //{
+            //    Ok = false;
+            //}
+
+            if (MobileNo.Length < 11)
+            {
+                Ok = false;
+            }
+            if (MobileNo.Length > 12)
+            {
+                Ok = false;
+            }
+
+
+        
 
 
             //if (PayrollNo.Length < 1)
