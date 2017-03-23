@@ -15,7 +15,7 @@ namespace Class_Library
         //private data member for the StaffID property
         private String mAddress;
         //private data member for the StaffID property
-        private String mPostCode;
+        private String mPostcode;
         //private data member for the StaffID property
         private String mCounty;
         //private data member for the StaffID property
@@ -97,16 +97,16 @@ namespace Class_Library
         }
 
 
-        public string PostCode
+        public string Postcode
         {
             get
             { //return the private data 
-                return mPostCode;
+                return mPostcode;
             }
             set
             {
                 //set the value if the priavte data memeber
-                mPostCode = value;
+                mPostcode = value;
             }
         }
 
@@ -196,7 +196,7 @@ namespace Class_Library
                 mLastName = Convert.ToString(staffDB.DataTable.Rows[0]["LastName"]);
                 mAddress = Convert.ToString(staffDB.DataTable.Rows[0]["Address"]);
                 mCounty = Convert.ToString(staffDB.DataTable.Rows[0]["County"]);
-                mPostCode = Convert.ToString(staffDB.DataTable.Rows[0]["PostCode"]);
+                mPostcode = Convert.ToString(staffDB.DataTable.Rows[0]["Postcode"]);
                 mMobileNo = Convert.ToString(staffDB.DataTable.Rows[0]["MobileNo"]);
                 mPayrollNo = Convert.ToString(staffDB.DataTable.Rows[0]["PayrollNo"]);
                 mRoleType = Convert.ToString(staffDB.DataTable.Rows[0]["RoleType"]);
@@ -244,14 +244,14 @@ namespace Class_Library
                 Ok = false;
             }
 
-            //if (PostCode.Length < 1)
-            //{
-            //    Ok = false;
-            //}
-            //if (PostCode.Length > 7)
-            //{
-            //    Ok = false;
-            //}
+            if (Postcode.Length < 1)
+            {
+                Ok = false;
+            }
+            if (Postcode.Length > 7)
+            {
+                Ok = false;
+            }
 
             //if (County.Length < 1)
             //{
@@ -262,7 +262,7 @@ namespace Class_Library
             //    Ok = false;
             //}
 
-            if (MobileNo.Length < 11)
+            if (MobileNo.Length < 1)
             {
                 Ok = false;
             }

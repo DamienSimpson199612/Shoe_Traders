@@ -116,16 +116,16 @@ namespace Test_Framework
         }
 
         [TestMethod]
-        public void PostCode()
+        public void Postcode()
         {
             //create an instance of the class we want to create
             clsStaff Staff = new clsStaff();
             //create some test data tp assign to the property
             String TestData = "LE27EF";
             //asign the data to the property
-            Staff.PostCode = TestData;
+            Staff.Postcode = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(Staff.PostCode, TestData);
+            Assert.AreEqual(Staff.Postcode, TestData);
 
         }
 
@@ -320,7 +320,7 @@ namespace Test_Framework
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void TestPostCodeFound()
+        public void TestPostcodeFound()
         {
             //create an instance of the class we want to create
             clsStaff Staff = new clsStaff();
@@ -333,7 +333,7 @@ namespace Test_Framework
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.PostCode != "Test12")
+            if (Staff.Postcode != "Test12")
             {
                 OK = false;
             }
@@ -708,7 +708,7 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = false;
             string FirstName = "Damien";
-            string LastName = "abcdefghijabcdefghij abcdefghijabcdefghijabcdefghi";
+            string LastName = "abcdefghijabcdefghijabcdefghijabcdefghijabcdefghi";
             string Address = "this Street";
             string Postcode = "Le3 5fa";
             string County = "Nottinghamshire";
@@ -717,7 +717,7 @@ namespace Test_Framework
             string RoleType = "Manager";
             string TrainingCompleted = "All";
             //invoke the method
-            OK = Staff.Valid(FirstName, LastName, Address, Postcode, MobileNo, County, PayrollNo, RoleType, TrainingCompleted);
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
@@ -730,7 +730,8 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = false;
             string FirstName = "Damien";
-            string LastName = "abcdefghijabcdefghijabcdefghijabcdefghijabcdefghij";
+            string LastName = "";
+            LastName = LastName.PadLeft(50, 'a');
             string Address = "this Street";
             string Postcode = "Le3 5fa";
             string County = "Nottinghamshire";
@@ -739,7 +740,7 @@ namespace Test_Framework
             string RoleType = "Manager";
             string TrainingCompleted = "All";
             //invoke the method
-            OK = Staff.Valid(FirstName, LastName, Address, Postcode, MobileNo, County, PayrollNo, RoleType, TrainingCompleted);
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
             //test to see that the result is correct
             Assert.IsTrue(OK);
         }
@@ -989,6 +990,183 @@ namespace Test_Framework
         }
 
         [TestMethod]
+        public void PostcodeLessOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+
+        [TestMethod]
+        public void PostcodeMin()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "a";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void PostcodeMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "aa";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void PostcodeMaxMinusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "abcefg";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+
+        [TestMethod]
+        public void PostcodeNameMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "abcefgh";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void PostcodeMid()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "abc";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void PostcodeMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "abcefghi";
+            string County = "Nottinghamshire";
+            string MobileNo = "07732785042";
+            string PayrollNo = "P12345";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+
+
+
+        [TestMethod]
+        public void PostcodeExtremeMax()
+        {
+            //create an instance of the class we want to create
+            clsStaff Staff = new clsStaff();
+            //boolean variable to record if data is OK (assume it is)
+            Boolean OK = false;
+            string FirstName = "Damien";
+            string LastName = "Simpson";
+            string Address = "this street";
+            string Postcode = "";
+            Postcode = Postcode.PadRight(500, '0'); //should fail
+            string County = "Nottinghamshire";
+            string MobileNo = "";
+            string PayrollNo = "07732785042";
+            string RoleType = "Manager";
+            string TrainingCompleted = "All";
+            //invoke the method
+            OK = Staff.Valid(FirstName, LastName, Address, Postcode, County, MobileNo, PayrollNo, RoleType, TrainingCompleted);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+
+        [TestMethod]
         public void MobileLessOne()
         {
             //create an instance of the class we want to create
@@ -1098,7 +1276,7 @@ namespace Test_Framework
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void MobileNameMid()
+        public void MobileMid()
         {
             //create an instance of the class we want to create
             clsStaff Staff = new clsStaff();
