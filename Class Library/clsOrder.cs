@@ -132,7 +132,7 @@ namespace MyClassLibrary
             }
         }
 
-        public bool Valid(string orderDate, string customerName, string customerNo, string numberOfOrder)
+        public bool Valid(bool Active,string orderDate, string customerName, string customerNo, string numberOfOrder)
         {
             //create a boolean varibale flag an error
             Boolean OK = true;

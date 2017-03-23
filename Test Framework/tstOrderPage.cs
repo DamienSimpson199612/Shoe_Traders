@@ -257,32 +257,32 @@ namespace UnitTestProject
             //boolean variable to store the result of the validation
             Boolean OK = false;
             //create some data to use with the method
-           
+            bool Active = true;
             string OrderDate = DateTime.Now.Date.ToString();
             string CustomerName = "Jhon Wick";
             string CustomerNo = "1";
             string NumberOfOrder = "1";
             //invoke method
-            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            OK = AnOrder.Valid(Active,OrderDate, CustomerName, CustomerNo, NumberOfOrder);
 
             //TEST TO SEE WHAT IS CORRECT
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void OrderNoMinLessOne()
+        public void CustomerNameMinLessOne()
         {
             //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
             clsOrder AnOrder = new clsOrder();
             //boolean variable to store the result of the validation
             Boolean OK = false;
             //create some data to use with the method
-           
+            bool Active = true;
             string OrderDate = DateTime.Now.Date.ToString();
             string CustomerName = "Jhon Wick";
             string CustomerNo = "1";
             string NumberOfOrder = "1";
             //invoke method
-            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            OK = AnOrder.Valid(Active, OrderDate, CustomerName, CustomerNo, NumberOfOrder);
 
             //TEST TO SEE WHAT IS CORRECT
             Assert.IsFalse(OK);
