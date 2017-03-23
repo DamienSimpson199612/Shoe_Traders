@@ -132,12 +132,16 @@ namespace MyClassLibrary
             }
         }
 
-        public bool Valid(bool Active,string orderDate, string customerName, string customerNo, string numberOfOrder)
+        public bool Valid(string OrderDate, string CustomerName, string CustomerNo, string NumberOfOrder)
         {
             //create a boolean varibale flag an error
             Boolean OK = true;
             //IF the HouseNo is blank
             if (CustomerName.Length == 0)
+            {
+                OK = false;
+            }
+            if (CustomerName.Length > 50)
             {
                 OK = false;
             }

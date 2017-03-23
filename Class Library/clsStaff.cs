@@ -213,12 +213,10 @@ namespace Class_Library
 
         }
 
-        public bool Valid(string firstName, string lastName, string address, string postcode, string mobileNo, string payrollNo, string roleType, string trainingCompleted)
+        public bool Valid(string FirstName, string LastName, string Address, string Postcode, string MobileNo, string PayrollNo, string RoleType, string TrainingCompleted)
         {
             // boolean variable
             Boolean Ok = true;
-
-
             if (FirstName.Length < 1)
             {
                 Ok = false;
@@ -228,7 +226,7 @@ namespace Class_Library
                 Ok = false;
             }
 
-            if (LastName.Length < 2)
+            if (LastName.Length < 1)
             {
                 Ok = false;
             }
@@ -237,89 +235,62 @@ namespace Class_Library
                 Ok = false;
             }
 
-            //if (Address.Length == 0)
+            //if (Address.Length < 1)
             //{
             //    Ok = false;
             //}
-            if (Address.Length < 2)
-            {
-                Ok = false;
-            }
-            if (Address.Length > 50)
-            {
-                Ok = false;
-            }
+            //if (Address.Length > 50)
+            //{
+            //    Ok = false;
+            //}
 
 
-            if (MobileNo.Length < 11)
-            {
-                Ok = false;
-            }
-            if (MobileNo.Length > 15)
-            {
-                Ok = false;
-            }
+            //if (MobileNo.Length < 11)
+            //{
+            //    Ok = false;
+            //}
+            //if (MobileNo.Length > 12)
+            //{
+            //    Ok = false;
+            //}
 
-            //if (PostCode.Length == 0)
+
+            //if (PostCode.Length < 1)
             //{
             //    Ok = false;
             //}
-            if (PostCode.Length < 6)
-            {
-                Ok = false;
-            }
-            if (PostCode.Length > 12)
-            {
-                Ok = false;
-            }
-           // if (MobileNo.Length == 0)
-           // {
-           //     Ok = false;
-           // }
-            if (MobileNo.Length < 11)
-            {
-                Ok = false;
-            }
-            if (MobileNo.Length > 14)
-            {
-                Ok = false;
-            }
-            //if (PayrollNo.Length == 0)
+            //if (PostCode.Length > 7)
             //{
             //    Ok = false;
             //}
-            if (PayrollNo.Length < 1)
-            {
-                Ok = false;
-            }
-            if (PayrollNo.Length > 10)
-            {
-                Ok = false;
-            }
-            //if (RoleType.Length == 0)
+
+
+            //if (PayrollNo.Length < 1)
             //{
             //    Ok = false;
             //}
-            if (RoleType.Length < 1)
-            {
-                Ok = false;
-            }
-            if (RoleType.Length > 50)
-            {
-                Ok = false;
-            }
-            //if (TrainingCompleted.Length == 0)
+            //if (PayrollNo.Length > 10)
             //{
             //    Ok = false;
             //}
-            if (TrainingCompleted.Length < 1)
-            {
-                Ok = false;
-            }
-            if (TrainingCompleted.Length > 500)
-            {
-                Ok = false;
-            }
+
+            //if (RoleType.Length < 1)
+            //{
+            //    Ok = false;
+            //}
+            //if (RoleType.Length > 50)
+            //{
+            //    Ok = false;
+            //}
+
+            //if (TrainingCompleted.Length < 1)
+            //{
+            //    Ok = false;
+            //}
+            //if (TrainingCompleted.Length > 500)
+            //{
+            //    Ok = false;
+            //}
 
 
 
