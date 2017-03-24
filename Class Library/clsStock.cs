@@ -142,5 +142,131 @@ namespace Class_Library
                 return false;
             }
         }
+
+        public bool Valid(string Brand, string ShoeName, string Colour, string Size, string StockAmount)
+        {
+            //create a boolean variable to flag the error
+            Boolean OK = true;
+            //if the brand is blank
+            if (Brand.Length == 0)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the brand is greater than 20 characters
+            if (Brand.Length > 20)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the shoe name is blank
+            if (ShoeName.Length == 0)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the shoe name is greater than 30 characters
+            if (ShoeName.Length > 30)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the colour is blank
+            if (Colour.Length == 0)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the colour is greater than 10 characters
+            if (Colour.Length > 10)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            try
+            {
+                //create a variable called TempSize which checks for any illegal characters in Size 
+                Int32 TempSize = Convert.ToInt32(Size);
+                //if TempSize is equal to or less than zero
+                if (TempSize <= 0)
+                {
+                    //set the flag OK to false
+                    OK = false;
+                }
+
+                //if TempSize is more than 25
+                if (TempSize > 25)
+                {
+                    //set the flag OK to false
+                    OK = false;
+                }
+            }
+            catch
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the size is blank
+            if (Size.Length == 0)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the size is greater than 10 characters
+            if (Size.Length > 10)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            try
+            {
+                //create a variable called TempStockAmount which checks for any illegal characters in Size 
+                Int32 TempStockAmount = Convert.ToInt32(StockAmount);
+                //if TempStockAmount is equal to or less than zero
+                if (TempStockAmount <= 0)
+                {
+                    //set the flag OK to false
+                    OK = false;
+                }
+
+                //if TempStockAmount is more than 5000
+                if (TempStockAmount > 5000)
+                {
+                    //set the flag OK to false
+                    OK = false;
+                }
+            }
+            catch
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the stock amount is blank
+            if (StockAmount.Length == 0)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //if the stock amount is greater than 10 characters
+            if (StockAmount.Length > 10)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+
+            //return the value of OK
+            return OK;
+        }
     }
 }

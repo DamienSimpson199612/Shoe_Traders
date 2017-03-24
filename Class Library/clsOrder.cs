@@ -120,7 +120,7 @@ namespace MyClassLibrary
                 mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
                 mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
                 mNumberOfOrder = Convert.ToInt32(DB.DataTable.Rows[0]["NumberOfOrder"]);
-                
+
                 //always return value
                 return true;
             }
@@ -136,7 +136,9 @@ namespace MyClassLibrary
         {
             //create a boolean varibale flag an error
             Boolean OK = true;
-            //IF the HouseNo is blank
+            //create  atemp var to store data values
+            DateTime DateTemp;
+            //IF the customername is blank
             if (CustomerName.Length == 0)
             {
                 OK = false;
@@ -145,7 +147,47 @@ namespace MyClassLibrary
             {
                 OK = false;
             }
-            return OK;
-        }
+
+            //IF the numberof order is blank
+            if (NumberOfOrder.Length == 0)
+            {
+                OK = false;
+            }
+            if (NumberOfOrder.Length > 6)
+            {
+                OK = false;
+            }
+
+            //try the date validation
+            try
+            {
+                //copy the date added value to the date temp 
+                DateTemp = Convert.ToDateTime(OrderDate);
+                //check to see if the data is less than todays date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //flag as false
+                    OK = false;
+
+                }
+
+                //check to see if the data is greater than todays date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //set flag ok to false
+                    OK = false;
+                }
+            }
+            //catch teh data data to flag an error
+            catch
+            {
+                OK = false;
+            }
+            
+            
+                return OK;
+            }
     }
-}
+    }
+    
+

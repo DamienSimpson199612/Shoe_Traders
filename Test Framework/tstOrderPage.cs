@@ -416,9 +416,9 @@ namespace UnitTestProject
             //boolean variable to store the result of the validation
             Boolean OK = false;
             //create some data to use with the method
-            string CustomerName="";
+            string CustomerName = "";
             string OrderDate = DateTime.Now.Date.ToString();
-            CustomerName=CustomerName.PadRight(50, 'a');
+            CustomerName = CustomerName.PadRight(50, 'a');
             string CustomerNo = "1";
             string NumberOfOrder = "1";
             //invoke method
@@ -427,9 +427,321 @@ namespace UnitTestProject
             //TEST TO SEE WHAT IS CORRECT
             Assert.IsTrue(OK);
 
+
+        }
+        [TestMethod]
+        public void OrderDateExtremeMin()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //create a variable to store the data
+            DateTime TestDate;
+            //set totays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddYears(-100);
+            //convert the data to a variable
+            string OrderDate = TestDate.ToString();
+            //invoke the medthod
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            Assert.IsFalse(OK);
+
+
+        }
+        [TestMethod]
+        public void OrderDateMinLessOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //create a variable to store the data
+            DateTime TestDate;
+            //set totays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddDays(-1);
+            //convert the data to a variable
+            string OrderDate = TestDate.ToString();
+            //invoke the medthod
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            Assert.IsFalse(OK);
+
+
+        }
+        [TestMethod]
+        public void OrderDateMin()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //create a variable to store the data
+            DateTime TestDate;
+            //set totays date
+            TestDate = DateTime.Now.Date;
+
+            //convert the data to a variable
+            string OrderDate = TestDate.ToString();
+            //invoke the medthod
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            Assert.IsTrue(OK);
+
+
+        }
+        [TestMethod]
+        public void OrderDateMinPlusOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //create a variable to store the data
+            DateTime TestDate;
+            //set totays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddDays(1);
+            //convert the data to a variable
+            string OrderDate = TestDate.ToString();
+            //invoke the medthod
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            Assert.IsFalse(OK);
+
+
+        }
+        [TestMethod]
+        public void OrderDateExtremeMax()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //create a variable to store the data
+            DateTime TestDate;
+            //set totays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is less than 100 years
+            TestDate = TestDate.AddDays(100);
+            //convert the data to a variable
+            string OrderDate = TestDate.ToString();
+            //invoke the medthod
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            Assert.IsFalse(OK);
+
+
+        }
+        [TestMethod]
+        public void OrderDateInvalidData()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";
+            //set teh dateadded to a non date value
+            string OrderDate = "this is not  a date!";
+            //invoke the method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+            //test to see that the results is correct
+            Assert.IsFalse(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderLessOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "";
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsFalse(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderMin()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1";//should be ok
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderPlusOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "2";//should be ok
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderMaxLessOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "5";//should be ok
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderMax()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "6";//should be ok
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderMid()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "3";//should be ok
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsTrue(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderMaxPlusOne()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "1111111";
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsFalse(OK);
+
+        }
+        [TestMethod]
+        public void NumberOfOrderExtremeMax()
+        {
+            //CREATE AN INSTANCE OF THE CLASS WE WANT TO CREATE
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some data to use with the method
+
+            string OrderDate = DateTime.Now.Date.ToString();
+            string CustomerName = "Jhon Wick";
+            string CustomerNo = "1";
+            string NumberOfOrder = "";
+           NumberOfOrder= NumberOfOrder.PadRight(500,'a');
+            //invoke method
+            OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
+
+            //TEST TO SEE WHAT IS CORRECT
+            Assert.IsFalse(OK);
+
         }
     }
 }
+
 
 
 
