@@ -115,9 +115,9 @@ namespace UnitTestProject
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some data to use with the method
-            Int32 CustomerNo = 1;
+            Int32 OrderNo = 1;
             //invoke the method
-            Found = AnOrder.Find(CustomerNo);
+            Found = AnOrder.Find(OrderNo);
             //test to see that the result is correct
             Assert.IsTrue(Found);
         }
@@ -650,7 +650,7 @@ namespace UnitTestProject
             string OrderDate = DateTime.Now.Date.ToString();
             string CustomerName = "Jhon Wick";
             string CustomerNo = "1";
-            string NumberOfOrder = "5";//should be ok
+            string NumberOfOrder = "59";//should be ok
             //invoke method
             OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
 
@@ -670,7 +670,7 @@ namespace UnitTestProject
             string OrderDate = DateTime.Now.Date.ToString();
             string CustomerName = "Jhon Wick";
             string CustomerNo = "1";
-            string NumberOfOrder = "6";//should be ok
+            string NumberOfOrder = "60";//should be ok
             //invoke method
             OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
 
@@ -690,7 +690,7 @@ namespace UnitTestProject
             string OrderDate = DateTime.Now.Date.ToString();
             string CustomerName = "Jhon Wick";
             string CustomerNo = "1";
-            string NumberOfOrder = "3";//should be ok
+            string NumberOfOrder = "30";//should be ok
             //invoke method
             OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
 
@@ -710,7 +710,8 @@ namespace UnitTestProject
             string OrderDate = DateTime.Now.Date.ToString();
             string CustomerName = "Jhon Wick";
             string CustomerNo = "1";
-            string NumberOfOrder = "1111111";
+            string NumberOfOrder = "";
+            NumberOfOrder = NumberOfOrder.PadRight(61, '1');
             //invoke method
             OK = AnOrder.Valid(OrderDate, CustomerName, CustomerNo, NumberOfOrder);
 

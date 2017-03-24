@@ -153,7 +153,7 @@ namespace MyClassLibrary
             {
                 OK = false;
             }
-            if (NumberOfOrder.Length > 6)
+            if (NumberOfOrder.Length > 60)
             {
                 OK = false;
             }

@@ -15,9 +15,7 @@ namespace MyClassLibrary
         //private data member for Address
         private string mAddress;
         //private data member DateAdded
-        private DateTime mDateAdded;
-        //private data member DateAdded
-        private Int64 mTelephone;
+        private string mTelephoneNo;
 
         public Int32 SupplierID;
 
@@ -50,18 +48,7 @@ namespace MyClassLibrary
                 mAddress = value;
             }
         }
-        public DateTime DateAdded
-        {
-            get
-            {
-                //return data
-                return mDateAdded;
-            }
-            set
-            {
-                mDateAdded = value;
-            }
-        }
+      
         public DateTime DeliveryDate
         {
             get
@@ -99,16 +86,16 @@ namespace MyClassLibrary
                 mSupplierNo = value;
             }
         }
-        public Int64 TelephoneNo
+        public string TelephoneNo
         {
             get
             {
                 //return data
-                return mTelephone;
+                return mTelephoneNo;
             }
             set
             {
-                mTelephone = value;
+                mTelephoneNo = value;
             }
         }
 
@@ -158,7 +145,7 @@ namespace MyClassLibrary
             //add the paramerter for the address no to search for
             DB.AddParameter("@SupplierNo", SupplierNo);
             //execute the stored procedure
-            DB.Execute("sproc_tblSupplier_FilterSupplierNo");
+            DB.Execute("sproc_tblSupplier_FilterBySupplierNo");
             //If one record is found should be one or zero
             if (DB.Count == 1)
 
@@ -166,10 +153,9 @@ namespace MyClassLibrary
                 mSupplierNo = Convert.ToInt32(DB.DataTable.Rows[0]["SupplierNo"]);
                 mSupplierName = Convert.ToString(DB.DataTable.Rows[0]["SupplierName"]);
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
-                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
-                mTelephone = Convert.ToInt64(DB.DataTable.Rows[0]["Telephone"]);
+                mTelephoneNo = Convert.ToString(DB.DataTable.Rows[0]["Telephone"]);
                 mDeliveryDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DeliveryDate"]);
-                mDateAdded = Convert.ToDateTime(DB.DataTable.Rows[0]["DateAdded"]);
+               
 
                 //always return value
                 return true;
@@ -180,6 +166,21 @@ namespace MyClassLibrary
                 //return false indicate problem
                 return false;
             }
+        }
+
+        public bool Valid(string SupplierName, string Address, string TelephoneNo, string DeliveryDate)
+        {
+            //create a boolean var to show error
+            Boolean OK = true;
+            if (SupplierName.Length == 0)
+            {
+                OK = false;
+            }
+            if (SupplierName.Length > 6)
+            {
+                OK = false;
+            }
+         return OK;
         }
     }
 }
