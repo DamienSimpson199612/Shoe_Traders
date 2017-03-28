@@ -169,7 +169,7 @@ namespace MyTestFramework
             Boolean OK = false;
             //create some test data to use with the method
             string SupplierName = "Nike";
-            string Address= "31 Box Close";
+            string Address = "31 Box Close";
             string TelephoneNo = "07736738271";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
@@ -213,7 +213,7 @@ namespace MyTestFramework
             Assert.IsTrue(OK);
         }
         [TestMethod]
-        public void SupplierNameplusone()
+        public void SupplierNamePlusone()
         {
             //create an instance of the class we want to create
             clsSupplierPage ASupplier = new clsSupplierPage();
@@ -305,7 +305,7 @@ namespace MyTestFramework
             //boolean variable to store the result of the validation
             Boolean OK = false;
             //create some test data to pass to the method
-            string SupplierName = ""; 
+            string SupplierName = "";
             SupplierName = SupplierName.PadRight(500, 'e'); //shoud fail
             string Address = "31 Box Close";
             string TelephoneNo = "07736738271";
@@ -315,6 +315,262 @@ namespace MyTestFramework
             //test to see that the result is correct
             Assert.IsFalse(OK);
         }
+        [TestMethod]
+        public void DeliveryDateExtremeMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike";
+            string Address = "31 Box Close";
+            string TelephoneNo = "07736738271";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //change the date to whatever the date is less 100 years
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            TestDate = TestDate.AddYears(-100);
+            String DeliveryDate = TestDate.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        public void DeliveryDateMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike";
+            string Address = "31 Box Close";
+            string TelephoneNo = "07736738271";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //change the date to whatever the date is less 100 years
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            TestDate = TestDate.AddYears(-1);
+            string DeliveryDate = TestDate.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        public void DeliveryDateMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike";
+            string Address = "31 Box Close";
+            string TelephoneNo = "07736738271";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //change the date to whatever the date is less 100 years
+            TestDate = DateTime.Now.Date;
+            //convert the date variable to a string variable
+            string DeliveryDate = TestDate.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void DeliveryDateMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike";
+            string Address = "31 Box Close";
+            string TelephoneNo = "07736738271";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //change the date to whatever the date is less 100 years
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 1 day
+            TestDate = TestDate.AddDays(1);
+            //convert the date variable to a string variable
+            string DeliveryDate = TestDate.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        public void DeliveryDatextremeMax()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike";
+            string Address = "31 Box Close";
+            string TelephoneNo = "07736738271";
+            //create a variable to store the test date data
+            DateTime TestDate;
+            //set the daye todays date
+            TestDate = DateTime.Now.Date;
+            //change the date to whatever the date is plus 100 day
+            TestDate = TestDate.AddDays(100);
+            //convert the date variable to a string variable
+            string DeliveryDate = TestDate.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        public void DeliveryDateInvalidData()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike";
+            string Address = "31 Box Close";
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = "this is note a date";
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
 
+        [TestMethod]
+        public void AddressMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike"; //this should be ok
+            string Address = "";
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = "24/01/2015";
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        public void AddressMin()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "eee"; //this should be ok
+            string Address = "C";
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = DateTime.Now.Date.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void AddressMinPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "eee"; //this should be ok
+            string Address = "Cl";
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = DateTime.Now.Date.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void AddressMaxLessOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "eee"; //this should be ok
+            string Address = "";
+            Address = Address.PadRight(49, 'l');
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = DateTime.Now.Date.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void AddressMax()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike"; //this should be ok
+            string Address = "";
+            Address = Address.PadRight(50, 'l');
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = DateTime.Now.Date.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
+        [TestMethod]
+        public void AddressMaxPlusOne()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike"; //this should be ok
+            string Address = "";
+            Address = Address.PadRight(51, 'l');
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = "24 / 01 / 2015";
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsFalse(OK);
+        }
+        [TestMethod]
+        public void AddressMid()
+        {
+            //create an instance of the class we want to create
+            clsSupplierPage ASupplier = new clsSupplierPage();
+            //boolean variable to store the result of the validation
+            Boolean OK = false;
+            //create some test data to pass to the method
+            string SupplierName = "Nike"; //this should be ok
+            string Address = "";
+            Address = Address.PadRight(25, 'l');
+            string TelephoneNo = "07736738271";
+            string DeliveryDate = DateTime.Now.Date.ToString();
+            //invoke the method
+            OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
+            //test to see that the result is correct
+            Assert.IsTrue(OK);
+        }
     }
 }

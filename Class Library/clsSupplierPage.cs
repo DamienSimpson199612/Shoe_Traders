@@ -48,7 +48,7 @@ namespace MyClassLibrary
                 mAddress = value;
             }
         }
-      
+
         public DateTime DeliveryDate
         {
             get
@@ -155,7 +155,7 @@ namespace MyClassLibrary
                 mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
                 mTelephoneNo = Convert.ToString(DB.DataTable.Rows[0]["Telephone"]);
                 mDeliveryDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DeliveryDate"]);
-               
+
 
                 //always return value
                 return true;
@@ -172,6 +172,9 @@ namespace MyClassLibrary
         {
             //create a boolean var to show error
             Boolean OK = true;
+            //create a temporary variable to store the data values
+            DateTime DateTemp;
+            //if
             if (SupplierName.Length == 0)
             {
                 OK = false;
@@ -180,10 +183,49 @@ namespace MyClassLibrary
             {
                 OK = false;
             }
-         return OK;
-        }
+            //try the date validation assuming the data is valid date
+            try
+            {
+                //copy the DeliveryDate value to the DateTemp varaible
+                DateTemp = Convert.ToDateTime(DeliveryDate);
+                //check to see if the date is less than today's date
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    OK = false;
+                }
+                //check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //set the flag OK to false
+                    OK = false;
+
+                }
+            }
+            //the data was not a date so flag error
+            catch
+            {
+                //set the flag Ok to false
+                OK = false;
+
+            }
+            //is the address blank
+            if (Address.Length == 0)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+            //if the address is too long
+            if (Address.Length > 50)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+            //return value Ok
+            return OK;
+           }
+        }  
     }
-}
+
 
 
 
