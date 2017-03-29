@@ -19,10 +19,10 @@ namespace MyClassLibrary
 
         public Int32 SupplierID;
 
-        public clsSupplierPage()
-        {
+        //public clsSupplierPage()
+        //{
 
-        }
+        //}
 
         public bool Active
         {
@@ -168,18 +168,18 @@ namespace MyClassLibrary
             }
         }
 
-        public bool Valid(string SupplierName, string Address, string TelephoneNo, string DeliveryDate)
+        public bool Valid(string supplierName,string telephoneNo,string address, string deliveryDate)
         {
             //create a boolean var to show error
             Boolean OK = true;
             //create a temporary variable to store the data values
             DateTime DateTemp;
             //if
-            if (SupplierName.Length == 0)
+            if (supplierName.Length == 0)
             {
                 OK = false;
             }
-            if (SupplierName.Length > 6)
+            if (supplierName.Length > 6)
             {
                 OK = false;
             }
@@ -187,7 +187,7 @@ namespace MyClassLibrary
             try
             {
                 //copy the DeliveryDate value to the DateTemp varaible
-                DateTemp = Convert.ToDateTime(DeliveryDate);
+                DateTemp = Convert.ToDateTime(deliveryDate);
                 //check to see if the date is less than today's date
                 if (DateTemp < DateTime.Now.Date)
                 {
@@ -209,13 +209,25 @@ namespace MyClassLibrary
 
             }
             //is the address blank
-            if (Address.Length == 0)
+            if (address.Length == 0)
             {
                 //set the flag OK to false
                 OK = false;
             }
             //if the address is too long
-            if (Address.Length > 50)
+            if (address.Length > 50)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+           // is the address blank
+            if (telephoneNo.Length < 11)
+            {
+                //set the flag OK to false
+                OK = false;
+            }
+            //if the address is too long
+            if (telephoneNo.Length > 12)
             {
                 //set the flag OK to false
                 OK = false;

@@ -73,7 +73,7 @@ namespace MyClassLibrary
 
             }
         }
-        public DateTime DateAdded
+        public DateTime OrderDate
         {
             get
             {

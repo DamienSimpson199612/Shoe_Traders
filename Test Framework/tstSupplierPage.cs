@@ -508,9 +508,9 @@ namespace MyTestFramework
             //boolean variable to store the result of the validation
             Boolean OK = false;
             //create some test data to pass to the method
-            string SupplierName = "eee"; //this should be ok
+            string SupplierName = "Nike"; //this should be ok
             string Address = "";
-            Address = Address.PadRight(49, 'l');
+            Address = Address.PadRight(49, 'c');
             string TelephoneNo = "07736738271";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
@@ -528,7 +528,7 @@ namespace MyTestFramework
             //create some test data to pass to the method
             string SupplierName = "Nike"; //this should be ok
             string Address = "";
-            Address = Address.PadRight(50, 'l');
+            Address = Address.PadRight(50, '0');
             string TelephoneNo = "07736738271";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
@@ -566,7 +566,7 @@ namespace MyTestFramework
             string Address = "";
             Address = Address.PadRight(25, 'l');
             string TelephoneNo = "07736738271";
-            string DeliveryDate = DateTime.Now.Date.ToString();
+            string DeliveryDate = Convert.ToString(DateTime.Now.Date);
             //invoke the method
             OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
             //test to see that the result is correct
@@ -582,7 +582,7 @@ namespace MyTestFramework
             //create some test data to pass to the method
             string SupplierName = "Nike"; //this should be ok
             string Address = "31 Box Close";
-            string TelephoneNo = "0";
+            string TelephoneNo = "12345678909";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
             OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
@@ -599,7 +599,7 @@ namespace MyTestFramework
             //create some test data to pass to the method
             string SupplierName = "Nike"; //this should be ok
             string Address = "31 Box Close";
-            string TelephoneNo = "07";
+            string TelephoneNo = "123456789098";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
             OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
@@ -616,7 +616,7 @@ namespace MyTestFramework
             //create some test data to pass to the method
             string SupplierName = "Nike"; //this should be ok
             string Address = "31 Box Close";
-            string TelephoneNo = "0773673827";
+            string TelephoneNo = "12345678909";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
             OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
@@ -650,7 +650,7 @@ namespace MyTestFramework
             //create some test data to pass to the method
             string SupplierName = "Nike"; //this should be ok
             string Address = "31 Box Close";
-            string TelephoneNo = "07736";
+            string TelephoneNo = "12345678909";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
             OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);
@@ -667,7 +667,7 @@ namespace MyTestFramework
             //create some test data to pass to the method
             string SupplierName = "Nike"; //this should be ok
             string Address = "31 Box Close";
-            string TelephoneNo = "077367382711";
+            string TelephoneNo = "1234567891234";
             string DeliveryDate = DateTime.Now.Date.ToString();
             //invoke the method
             OK = ASupplier.Valid(SupplierName, TelephoneNo, Address, DeliveryDate);

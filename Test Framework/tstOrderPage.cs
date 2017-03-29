@@ -53,9 +53,9 @@ namespace UnitTestProject
             //test to see it exists
             DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AnOrder.DateAdded = TestData;
+            AnOrder.OrderDate= TestData;
             //test to see the two halves are the same
-            Assert.AreEqual(AnOrder.DateAdded, TestData);
+            Assert.AreEqual(AnOrder.OrderDate, TestData);
         }
         [TestMethod]
         public void OrderNoPropertyOK()
@@ -178,7 +178,7 @@ namespace UnitTestProject
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the orderno No
-            if (AnOrder.DateAdded != Convert.ToDateTime("16/02/2016"))
+            if (AnOrder.OrderDate != Convert.ToDateTime("16/02/2016"))
             {
                 OK = false;
             }
