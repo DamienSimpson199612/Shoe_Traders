@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="tstCustomerCollection.cs" />
     <Compile Include="tstOrderCollection.cs" />
+    <Compile Include="tstStaffCollection.cs" />
     <Compile Include="tstStock.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

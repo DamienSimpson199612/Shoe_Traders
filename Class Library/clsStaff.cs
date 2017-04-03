@@ -253,14 +253,14 @@ namespace Class_Library
                 Ok = false;
             }
 
-            //if (County.Length < 1)
-            //{
-            //    Ok = false;
-            //}
-            //if (County.Length > 7)
-            //{
-            //    Ok = false;
-            //}
+            if (County.Length < 1)
+            {
+                Ok = false;
+            }
+            if (County.Length > 50)
+            {
+                Ok = false;
+            }
 
             if (MobileNo.Length < 1)
             {
@@ -272,35 +272,35 @@ namespace Class_Library
             }
 
 
-        
 
 
-            //if (PayrollNo.Length < 1)
-            //{
-            //    Ok = false;
-            //}
-            //if (PayrollNo.Length > 10)
-            //{
-            //    Ok = false;
-            //}
 
-            //if (RoleType.Length < 1)
-            //{
-            //    Ok = false;
-            //}
-            //if (RoleType.Length > 50)
-            //{
-            //    Ok = false;
-            //}
+            if (PayrollNo.Length < 1)
+            {
+                Ok = false;
+            }
+            if (PayrollNo.Length > 10)
+            {
+                Ok = false;
+            }
 
-            //if (TrainingCompleted.Length < 1)
-            //{
-            //    Ok = false;
-            //}
-            //if (TrainingCompleted.Length > 500)
-            //{
-            //    Ok = false;
-            //}
+            if (RoleType.Length < 1)
+            {
+                Ok = false;
+            }
+            if (RoleType.Length > 50)
+            {
+                Ok = false;
+            }
+
+            if (TrainingCompleted.Length < 1)
+            {
+                Ok = false;
+            }
+            if (TrainingCompleted.Length > 500)
+            {
+                Ok = false;
+            }
 
 
 
