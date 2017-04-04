@@ -105,6 +105,7 @@ namespace Class_Library
 
         public void Delete()
         {
+            //////
             //delte teh record pointed by thsi address
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
@@ -113,6 +114,7 @@ namespace Class_Library
             //execute teh stored procedure
             DB.Execute("sproc_tblOrder_Delete");
         }
+        
     }
 }
    
