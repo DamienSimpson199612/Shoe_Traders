@@ -102,6 +102,17 @@ namespace Class_Library
             //execute query
             return DB.Execute("sproc_tblOrder_Insert");
         }
+
+        public void Delete()
+        {
+            //delte teh record pointed by thsi address
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //Set the parametrs for the stored procedure
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            //execute teh stored procedure
+            DB.Execute("sproc_tblOrder_Delete");
+        }
     }
 }
    
