@@ -106,7 +106,7 @@ namespace Class_Library
         public void Delete()
         {
             //////
-            /////
+
             //delte teh record pointed by thsi address
             //connect to the database
             clsDataConnection DB = new clsDataConnection();
