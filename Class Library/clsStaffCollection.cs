@@ -71,7 +71,6 @@ namespace Class_Library
             //connect to th edatabase
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@Active", mThisStaff.Active);
             DB.AddParameter("@FirstName", mThisStaff.FirstName);
             DB.AddParameter("@LastName", mThisStaff.LastName);
             DB.AddParameter("@Address", mThisStaff.Address);
@@ -80,8 +79,9 @@ namespace Class_Library
             DB.AddParameter("@MobileNo", mThisStaff.MobileNo);
             DB.AddParameter("@County", mThisStaff.County);
             DB.AddParameter("@PayrollNo", mThisStaff.PayrollNo);
-            DB.AddParameter("@RoleType", mThisStaff.RoleType);
             DB.AddParameter("@TrainingCompleted", mThisStaff.TrainingCompleted);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            DB.AddParameter("@RoleType", mThisStaff.RoleType);
 
 
             //execute th equery returning the primary keyvalue 
@@ -105,7 +105,6 @@ namespace Class_Library
             //connect to th edatabase
             clsDataConnection DB = new clsDataConnection();
             //set the parameters for the stored procedure
-            DB.AddParameter("@Active", mThisStaff.Active);
             DB.AddParameter("@FirstName", mThisStaff.FirstName);
             DB.AddParameter("@LastName", mThisStaff.LastName);
             DB.AddParameter("@Address", mThisStaff.Address);
@@ -114,8 +113,10 @@ namespace Class_Library
             DB.AddParameter("@MobileNo", mThisStaff.MobileNo);
             DB.AddParameter("@County", mThisStaff.County);
             DB.AddParameter("@PayrollNo", mThisStaff.PayrollNo);
-            DB.AddParameter("@RoleType", mThisStaff.RoleType);
             DB.AddParameter("@TrainingCompleted", mThisStaff.TrainingCompleted);
+            DB.AddParameter("@Active", mThisStaff.Active);
+            DB.AddParameter("@RoleType", mThisStaff.RoleType);
+
             //execute th equery returning the primary keyvalue 
             DB.Execute("sproc_Staff_Update");
         }
@@ -151,16 +152,16 @@ namespace Class_Library
                 clsStaff AnStaff = new clsStaff();
                 //read in the fields from the current record
                 AnStaff.StaffID = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffID"]);
-                AnStaff.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnStaff.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["Name"]);
+                AnStaff.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
                 AnStaff.LastName = Convert.ToString(DB.DataTable.Rows[Index]["LastName"]);
                 AnStaff.Address = Convert.ToString(DB.DataTable.Rows[Index]["Address"]);
                 AnStaff.Postcode = Convert.ToString(DB.DataTable.Rows[Index]["Postcode"]);
                 AnStaff.County = Convert.ToString(DB.DataTable.Rows[Index]["County"]);
                 AnStaff.MobileNo = Convert.ToString(DB.DataTable.Rows[Index]["MobileNo"]);
                 AnStaff.PayrollNo = Convert.ToString(DB.DataTable.Rows[Index]["PayrollNo"]);
-                AnStaff.RoleType = Convert.ToString(DB.DataTable.Rows[Index]["RoleType"]);
                 AnStaff.TrainingCompleted = Convert.ToString(DB.DataTable.Rows[Index]["TrainingCompleted"]);
+                AnStaff.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnStaff.RoleType = Convert.ToString(DB.DataTable.Rows[Index]["RoleType"]);
 
                 //add the record to the private data mamber
                 StaffList.Add(AnStaff);

@@ -82,9 +82,38 @@ namespace Test_Framework
             //test to see if the two values are the same
             Assert.AreEqual(AllOrders.Count, TestList.Count);
         }
-        
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create a instance 
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //list of objects
+            List<clsOrder> TestList = new List<clsOrder>();
+            //create some data to assign the property
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            //set the properties of the test project
+            TestItem.Active = true;
+            TestItem.CustomerName = "Steven Martin";
+            TestItem.CustomerNo = 3;
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.OrderNo = 1;
+            TestItem.NumberOfOrder = 7;
+            //assign the data propety 
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key for the test data
+            TestItem.OrderNo = PrimaryKey;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //test to see that the two values are the same
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
+
+
     }
+}
 
 
 

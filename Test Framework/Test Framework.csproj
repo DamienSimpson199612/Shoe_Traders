@@ -73,6 +73,7 @@
     <Compile Include="tstOrderPage.cs" />
     <Compile Include="tstStaff.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tstSupplierCollection.cs" />
     <Compile Include="tstSupplierPage.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,7 @@ namespace Class_Library
     {
         List<clsOrder> mOrderList = new List<clsOrder>();
         //public property for the address list
+        clsOrder mThisOrder = new clsOrder();
 
         public int Count
         {
@@ -35,7 +36,19 @@ namespace Class_Library
                 mOrderList = value;
             }
         }
-        public clsOrder ThisOrder { get; set; }
+        public clsOrder ThisOrder
+        {
+            get
+            {
+                //return the private data
+                return mThisOrder;
+            }
+            set
+            {
+                //set private data
+                mThisOrder = value;
+            }
+        }
 
         //constructer for the class 
         public clsOrderCollection()
@@ -75,6 +88,20 @@ namespace Class_Library
 
         }
 
+        public int Add()
+        {
+            //adds new record to the database 
+            //connect to database
+            clsDataConnection DB = new clsDataConnection();
+            //set the paramaters for the stored procedure
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@CustomerName", mThisOrder.CustomerName);
+            DB.AddParameter("@Active", mThisOrder.Active);
+            DB.AddParameter("@CustomerNo", mThisOrder.CustomerNo);
+            DB.AddParameter("@NumberOfOrder", mThisOrder.NumberOfOrder);
+            //execute query
+            return DB.Execute("sproc_tblOrder_Insert");
+        }
     }
 }
    
