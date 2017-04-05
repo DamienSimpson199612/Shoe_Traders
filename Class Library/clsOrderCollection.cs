@@ -53,38 +53,13 @@ namespace Class_Library
         //constructer for the class 
         public clsOrderCollection()
         {
-            //create items of the test data
-            clsOrder TestItem = new clsOrder();
-            //var for the index
-            Int32 Index = 0;
-            //var to store the record count
-            Int32 RecordCount = 0;
             clsDataConnection DB = new clsDataConnection();
-            //EXECUTE THE STORED PROCEDURE
             DB.Execute("sproc_tblOrder_SelectAll");
-            //get the record count
-            RecordCount = DB.Count;
-            //while there are records to process
-            while (Index < RecordCount)
-            {
-                //create a blank address
-                clsOrder AnOrder = new clsOrder();
-                //read in the feilds
-                AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
-                AnOrder.CustomerName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerName"]);
-                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
-                AnOrder.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerNo"]);
-                AnOrder.NumberOfOrder = Convert.ToInt32(DB.DataTable.Rows[Index]["NumberOfOrder"]);
-                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
-                //add the record
-                mOrderList.Add(AnOrder);
-                //point the record
-                Index++;
+            PopulateArray(DB);
 
 
 
-
-            }
+            
 
         }
 
@@ -115,7 +90,66 @@ namespace Class_Library
             //execute teh stored procedure
             DB.Execute("sproc_tblOrder_Delete");
         }
-        
+
+        public void Update()
+        {
+            //UPDATE RECORD BASED ON VALUES OF THIS ORDER
+            clsDataConnection DB = new clsDataConnection();
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+            DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
+            DB.AddParameter("@CustomerName", mThisOrder.CustomerName);
+            DB.AddParameter("@Active", mThisOrder.Active);
+            DB.AddParameter("@CustomerNo", mThisOrder.CustomerNo);
+            DB.AddParameter("@NumberOfOrder", mThisOrder.NumberOfOrder);
+            //execute stored procedure
+            DB.Execute("sproc_tblOrder_Update");
+        }
+
+        public void FilterByOrderNo(int OrderNo)
+        {
+            //filters the record based on a full or partial postcode
+            //connect to the database 
+            clsDataConnection DB = new clsDataConnection();
+            //send the lastname parameter to the database
+            DB.AddParameter("@OrderNo", OrderNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            //populate the array list with data table 
+            PopulateArray(DB);
+
+
+        }
+
+        void PopulateArray(clsDataConnection DB)
+        {
+            //Populates teh array list based on the data table in the parmater db
+            Int32 Index = 0;
+            //var to store the record count
+            Int32 RecordCount;
+            //get the records
+            RecordCount = DB.Count;
+            //clear the array list 
+            mOrderList = new List<clsOrder>();
+            //while there are records to process
+            while (Index < RecordCount)
+            {
+                clsOrder AnOrder = new clsOrder();
+                //read in the fields from the current record
+                AnOrder.OrderNo = Convert.ToInt32(DB.DataTable.Rows[Index]["OrderNo"]);
+                AnOrder.OrderDate = Convert.ToDateTime(DB.DataTable.Rows[Index]["OrderDate"]);
+                AnOrder.CustomerName = Convert.ToString(DB.DataTable.Rows[Index]["CustomerName"]);
+                AnOrder.Active = Convert.ToBoolean(DB.DataTable.Rows[Index]["Active"]);
+                AnOrder.CustomerNo = Convert.ToInt32(DB.DataTable.Rows[Index]["CustomerNo"]);
+                AnOrder.NumberOfOrder = Convert.ToInt32(DB.DataTable.Rows[Index]["NumberOfOrder"]);
+                //add the record to the private data member
+                mOrderList.Add(AnOrder);
+                Index++;
+
+
+            }
+        }
     }
 }
+    
+
    

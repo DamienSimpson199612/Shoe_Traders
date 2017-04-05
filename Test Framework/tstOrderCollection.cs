@@ -42,9 +42,9 @@ namespace Test_Framework
             Assert.AreEqual(AllOrders.OrderList, TestList);
 
         }
-      
+
         [TestMethod]
-        public void     ThisOrderPropertyOK()
+        public void ThisOrderPropertyOK()
         {
             //create a instance 
             clsOrderCollection AllOrders = new clsOrderCollection();
@@ -116,7 +116,7 @@ namespace Test_Framework
             //create a instance 
             clsOrderCollection AllOrders = new clsOrderCollection();
             //list of objects
-            
+
             //create some data to assign the property
             clsOrder TestItem = new clsOrder();
             Int32 PrimaryKey = 0;
@@ -141,8 +141,90 @@ namespace Test_Framework
             Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.IsFalse(Found);
         }
+        [TestMethod]
+        public void UpdateMethodOK()
+        {
+            //create a instance 
+            clsOrderCollection AllOrders = new clsOrderCollection();
+            //list of objects
+
+            //create some data to assign the property
+            clsOrder TestItem = new clsOrder();
+            Int32 PrimaryKey = 0;
+            //set the properties of the test project
+            TestItem.Active = true;
+            TestItem.CustomerName = "Steven Martin";
+            TestItem.CustomerNo = 3;
+            TestItem.OrderDate = DateTime.Now.Date;
+
+            TestItem.NumberOfOrder = 7;
+            //assign the data propety 
+            AllOrders.ThisOrder = TestItem;
+            //add the record
+            PrimaryKey = AllOrders.Add();
+            //set the primary key for the test data
+            TestItem.OrderNo = PrimaryKey;
+            //modidfy the test data
+            TestItem.Active = false;
+            TestItem.CustomerName = "Jonathon Bridge";
+            TestItem.CustomerNo = 5;
+            TestItem.OrderDate = DateTime.Now.Date;
+            TestItem.NumberOfOrder = 6;
+            //find the record
+            AllOrders.ThisOrder.Find(PrimaryKey);
+            //delete the record
+            AllOrders.Update();
+            //now find the record
+            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            Assert.AreEqual(AllOrders.ThisOrder, TestItem);
+        }
+        [TestMethod]
+        public void FilterByOrderNoNoneFound()
+        {
+
+            //create an instance of the filtered data 
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //apply a blank string (should return all records)
+            FilteredOrder.FilterByOrderNo(0);
+            //test to see that the two values are the same
+            Assert.AreEqual(0, FilteredOrder.Count);
+        }
+        [TestMethod]
+        public void FilterByOrderNoTestDataFound()
+        {
+
+            //create an instance of the filtered data 
+            clsOrderCollection FilteredOrder = new clsOrderCollection();
+            //var to store outcome
+            Boolean OK = true;
+            //apply a last name that doesnt exist
+            FilteredOrder.FilterByOrderNo(2);
+            //check that the correct number of records are found
+            if (FilteredOrder.Count == 2)
+            {
+                //check that the first record is ID 4
+                if (FilteredOrder.OrderList[0].OrderNo != 4)
+                {
+                    OK = false;
 
 
+                }
+                //check that the first record is ID 2
+                if (FilteredOrder.OrderList[0].OrderNo != 2)
+                {
+                    OK = false;
+                }
+                else
+                {
+                    OK = false;
+                }
+                //test to see that there are no records
+                Assert.IsTrue(OK);
+            }
+
+
+
+        }
     }
 }
 
