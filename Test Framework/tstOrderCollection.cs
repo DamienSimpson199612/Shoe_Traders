@@ -179,18 +179,18 @@ namespace Test_Framework
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
         [TestMethod]
-        public void FilterByOrderNoNoneFound()
+        public void FilterByCustomerNameNoneFound()
         {
 
             //create an instance of the filtered data 
             clsOrderCollection FilteredOrder = new clsOrderCollection();
             //apply a blank string (should return all records)
-            FilteredOrder.FilterByOrderNo(0);
+            FilteredOrder.FilterByCustomerName("Greg Mike");
             //test to see that the two values are the same
             Assert.AreEqual(0, FilteredOrder.Count);
         }
         [TestMethod]
-        public void FilterByOrderNoTestDataFound()
+        public void FilterByCustomerNameTestDataFound()
         {
 
             //create an instance of the filtered data 
@@ -198,7 +198,7 @@ namespace Test_Framework
             //var to store outcome
             Boolean OK = true;
             //apply a last name that doesnt exist
-            FilteredOrder.FilterByOrderNo(2);
+            FilteredOrder.FilterByCustomerName("Jhon Wick");
             //check that the correct number of records are found
             if (FilteredOrder.Count == 2)
             {

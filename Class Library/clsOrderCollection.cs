@@ -105,15 +105,15 @@ namespace Class_Library
             DB.Execute("sproc_tblOrder_Update");
         }
 
-        public void FilterByOrderNo(int OrderNo)
+        public void FilterByCustomerName(string CustomerName)
         {
             //filters the record based on a full or partial postcode
             //connect to the database 
             clsDataConnection DB = new clsDataConnection();
             //send the lastname parameter to the database
-            DB.AddParameter("@OrderNo", OrderNo);
+            DB.AddParameter("@CustomerName", CustomerName);
             //execute the stored procedure
-            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            DB.Execute("sproc_tblOrder_FilterByCustomerName");
             //populate the array list with data table 
             PopulateArray(DB);
 
