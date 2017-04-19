@@ -187,7 +187,7 @@ namespace Class_Library
             //execute the stored procedure
             staffDB.Execute("sproc_Staff_FilterByStaffID");
             //if one recird is found (there should be either one or zero)
-            if (staffDB.Count == 1)
+            if (staffDB.Count == 3)
             {
                 //copy the data the database to the private data members
                 mActive = Convert.ToBoolean(staffDB.DataTable.Rows[0]["Active"]);

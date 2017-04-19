@@ -5,7 +5,7 @@ using Class_Library;
 namespace Test_Framework
 {
     [TestClass]
-    public class TestLog_clsStaff
+    public class tstStaff
     {
         [TestMethod]
         public void InstanceOK()

@@ -76,14 +76,11 @@ namespace Class_Library
             DB.AddParameter("@Address", mThisStaff.Address);
             DB.AddParameter("@Postcode", mThisStaff.Postcode);
             DB.AddParameter("@County", mThisStaff.County);
-            DB.AddParameter("@MobileNo", mThisStaff.MobileNo);
-            DB.AddParameter("@County", mThisStaff.County);
             DB.AddParameter("@PayrollNo", mThisStaff.PayrollNo);
+            DB.AddParameter("@MobileNo", mThisStaff.MobileNo);
             DB.AddParameter("@TrainingCompleted", mThisStaff.TrainingCompleted);
             DB.AddParameter("@Active", mThisStaff.Active);
             DB.AddParameter("@RoleType", mThisStaff.RoleType);
-
-
             //execute th equery returning the primary keyvalue 
             return DB.Execute("sproc_Staff_Insert");
         }
@@ -110,9 +107,8 @@ namespace Class_Library
             DB.AddParameter("@Address", mThisStaff.Address);
             DB.AddParameter("@Postcode", mThisStaff.Postcode);
             DB.AddParameter("@County", mThisStaff.County);
-            DB.AddParameter("@MobileNo", mThisStaff.MobileNo);
-            DB.AddParameter("@County", mThisStaff.County);
             DB.AddParameter("@PayrollNo", mThisStaff.PayrollNo);
+            DB.AddParameter("@MobileNo", mThisStaff.MobileNo);
             DB.AddParameter("@TrainingCompleted", mThisStaff.TrainingCompleted);
             DB.AddParameter("@Active", mThisStaff.Active);
             DB.AddParameter("@RoleType", mThisStaff.RoleType);
