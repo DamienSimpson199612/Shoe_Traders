@@ -100,5 +100,13 @@ namespace Test_Framework
             //test to see that the two values are the same
             Assert.AreEqual(AllSuppliers.Count, TestList.Count);
         }
+        //[TestMethod]
+
+        //public void TwoRecordsPresents()
+        //{
+        //    //create an instance of the class we want to create 
+        //    clsCustomerCollection AllCustomer = new clsCustomerCollection();
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(AllCustomer.Count, 2);
     }
 }
