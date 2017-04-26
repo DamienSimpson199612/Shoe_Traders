@@ -27,8 +27,8 @@
     <br />
     <br />
     <br />
-    <asp:Button ID="btnOk" runat="server" OnClick="btnOk_Click" Text="OK" />
-    <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
+<%--    <asp:Button ID="btnOk" runat="server" OnClick="btnOk_Click" Text="OK" />
+    <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />--%>
     <br />
     <br />
     <br />

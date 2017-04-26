@@ -19,10 +19,6 @@ namespace MyClassLibrary
 
         public Int32 SupplierID;
 
-        //public clsSupplierPage()
-        //{
-
-        //}
 
         public bool Active
         {
@@ -97,6 +93,7 @@ namespace MyClassLibrary
             {
                 mTelephoneNo = value;
             }
+        
         }
 
         public bool Valid(int numOfSupplier, DateTime DeliveryDate)
