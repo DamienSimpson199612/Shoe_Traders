@@ -180,7 +180,7 @@ namespace Test_Framework
             //boolean variable to store the result of the validation
             Boolean Found = false;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //test to see that the result is correct
@@ -199,11 +199,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.Active != true)
+            if (Staff.Active == true)
             {
                 OK = false;
             }
@@ -243,11 +243,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.FirstName != "Test First Name")
+            if (Staff.FirstName != "Chloe")
             {
                 OK = false;
             }
@@ -265,11 +265,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.LastName != "Test Last Name")
+            if (Staff.LastName != "Jane")
             {
                 OK = false;
             }
@@ -287,11 +287,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.Address != "Test Address")
+            if (Staff.Address != "this Street")
             {
                 OK = false;
             }
@@ -308,11 +308,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.County != "Test County")
+            if (Staff.County != "Nottinghamshire")
             {
                 OK = false;
             }
@@ -329,11 +329,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.Postcode != "Test12")
+            if (Staff.Postcode != "Le3 5fa")
             {
                 OK = false;
             }
@@ -352,11 +352,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.MobileNo != "1")
+            if (Staff.MobileNo != "07732785042")
             {
                 OK = false;
             }
@@ -374,11 +374,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.PayrollNo != "PayrollNo")
+            if (Staff.PayrollNo != "P12345")
             {
                 OK = false;
             }
@@ -396,11 +396,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.RoleType != "Test RoleType")
+            if (Staff.RoleType != "Manager")
             {
                 OK = false;
             }
@@ -418,11 +418,11 @@ namespace Test_Framework
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffID = 21;
+            Int32 StaffID = 1;
             //invoke the method
             Found = Staff.Find(StaffID);
             //check the property
-            if (Staff.TrainingCompleted != "Test TrainingCompleted")
+            if (Staff.TrainingCompleted != "All")
             {
                 OK = false;
             }

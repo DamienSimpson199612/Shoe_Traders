@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using MyClassLibrary;
 
 namespace Class_Library
@@ -52,6 +53,20 @@ namespace Class_Library
                 //set th eprivate data
                 mThisSupplier = value;
             }
+        }
+
+        public int Add()
+        {
+            //adds a new record to the database based on the values of mThisSupplier
+            //set the primary key value of the new record
+            mThisSupplier.SupplierNo = 123;
+            //return the primary key of the new record
+            return mThisSupplier.SupplierNo;
+        }
+
+        public void Delete()
+        {
+            throw new NotImplementedException();
         }
     }
 }

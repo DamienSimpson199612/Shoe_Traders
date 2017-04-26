@@ -8,7 +8,7 @@ namespace Test_Framework
 {
 
     [TestClass]
-   
+
     public class tstSupplierCollection
     {
         [TestMethod]
@@ -109,4 +109,60 @@ namespace Test_Framework
         //    //test to see that the two values are the same
         //    Assert.AreEqual(AllCustomer.Count, 2);
     }
+    //////////////////////[TestMethod]
+    //////////////////////public void AddMethodOK()
+    //////////////////////{
+    //////////////////////    //create a instance 
+    //////////////////////    clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+    //////////////////////    //create some data to assign the property
+    //////////////////////    clsSupplierPage TestItem = new clsSupplierPage();
+    //////////////////////    //var to store the primary key
+    //////////////////////    Int32 PrimaryKey = 0;
+    //////////////////////    //set the properties of the test project
+    //////////////////////    TestItem.Active = true;
+    //////////////////////    TestItem.SupplierName = "Nike";
+    //////////////////////    TestItem.Address = "31 Box Close";
+    //////////////////////    TestItem.TelephoneNo = "07736738271";
+    //////////////////////    TestItem.DeliveryDate = DateTime.Now.Date;
+    //////////////////////    //assign the data propety 
+    //////////////////////    AllSuppliers.ThisSupplier = TestItem;
+    //////////////////////    //add the record
+    //////////////////////    PrimaryKey = AllSuppliers.Add();
+    //////////////////////    //set the primary key for the test data
+    //////////////////////    TestItem.SupplierID = PrimaryKey;
+    //////////////////////    //find the record
+    //////////////////////    AllSuppliers.ThisSupplier.Find(PrimaryKey);
+    //////////////////////    //test to see that the two values are the same
+    //////////////////////    Assert.AreEqual(AllSuppliers.ThisSupplier, TestItem);
+    //////////////////////}
+    //////////////////////[TestMethod]
+    //////////////////////public void DeleteMethodOk()
+    //////////////////////{
+    //////////////////////    //create an instance of the class we want to create
+    //////////////////////    clsSupplierCollection AllSuppliers = new clsSupplierCollection();
+    //////////////////////    //create the intem of test data
+    //////////////////////    clsSupplierPage TestItem = new clsSupplierPage();
+    //////////////////////    //var to store the primary key 
+    //////////////////////    Int32 PrimaryKey = 0;
+    //////////////////////    //set its properties 
+    //////////////////////    TestItem.Active = true;
+    //////////////////////    TestItem.SupplierName = "Nike";
+    //////////////////////    TestItem.Address = "31 Box Close";
+    //////////////////////    TestItem.TelephoneNo = "07736738271";
+    //////////////////////    TestItem.DeliveryDate = DateTime.Now.Date;
+    //////////////////////    //set thisStaff to the test data 
+    //////////////////////    AllSuppliers.ThisSupplier = TestItem;
+    //////////////////////    //add the record
+    //////////////////////    PrimaryKey = AllSuppliers.Add();
+    //////////////////////    //set the primary key of the test data
+    //////////////////////    TestItem.SupplierID = PrimaryKey;
+    //////////////////////    //find the record
+    //////////////////////    AllSuppliers.ThisSupplier.Find(PrimaryKey);
+    //////////////////////    //delete the record
+    //////////////////////    AllSuppliers.Delete();
+    //////////////////////    //now find the record 
+    //////////////////////    Boolean Found = AllSuppliers.ThisSupplier.Find(PrimaryKey);
+    //////////////////////    //test to see that the record was not found 
+    //////////////////////    Assert.IsFalse(Found);
+    //////////////////////}
 }
