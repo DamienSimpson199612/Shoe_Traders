@@ -137,7 +137,6 @@ namespace Test_Framework
             //var to the store the primary key
             Int32 PrimaryKey = 0;
             //set its properties
-           
             TestItem.FirstName ="Damien";
             TestItem.LastName ="Simpson";
             TestItem.Address ="this Street";
