@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="AnCustomer.aspx.cs" Inherits="AnCustomer" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="DeleteCustomer.aspx.cs" Inherits="DeleteCustomer" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
-<table>
+
+    <table>
         <tr>
             <td>First Name:</td>
             <td> <asp:TextBox ID="txtboxFirstName" runat="server"></asp:TextBox></td></tr>
@@ -34,5 +35,6 @@
 
         </tr>
          </table>
+
 </asp:Content>
 
