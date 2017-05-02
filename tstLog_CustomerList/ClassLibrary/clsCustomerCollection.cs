@@ -111,15 +111,15 @@ namespace ClassLibrary
             DB.Execute("sproc_Customers_Update");
         }
 
-        public void FilterByCustomerID(int CustomerID)
+        public void FilterByCustomerID(string name)
         {
             //filters the record based on a full or partial postcode
             //connect to the database 
             clsDataConnection DB = new clsDataConnection();
             //send the lastname parameter to the database
-            DB.AddParameter("@CustomerID", CustomerID);
+            DB.AddParameter("@Name", name);
             //execute the stored procedure
-            DB.Execute("sproc_Customers_FilterByCustomerID");
+            DB.Execute("sproc_Customers_FilterByCustomer_Name");
             //populate the array list with data table 
             PopulateArray(DB);
         }

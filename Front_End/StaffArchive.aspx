@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ShoeTrader.master" AutoEventWireup="true" CodeFile="DeleteCustomer.aspx.cs" Inherits="DeleteCustomer" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/ShoeTrader.master" AutoEventWireup="true" CodeFile="StaffArchive.aspx.cs" Inherits="StaffArchive" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
@@ -6,7 +6,7 @@
 
 <table>
         <tr>
-            <td>CustomerID:</td>
+            <td>StaffID:</td>
             <td> <asp:TextBox ID="txtboxFirstName" runat="server"></asp:TextBox></td></tr>
             <td style="height: 32px"> &nbsp;</td>
                 <td style="height: 32px"></td>                

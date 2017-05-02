@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace tstCustomerCollection
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestCustomerCollection
     {
         [TestMethod]
         public void InstanceOk()
@@ -229,6 +229,8 @@ namespace tstCustomerCollection
             Assert.AreEqual(AllCustomers.ThisCustomer, TestItem);
 
         }
+    }
+}
 
         //[TestMethod]
         //public void FilterByCustomerIDMethodOk()
@@ -245,53 +247,53 @@ namespace tstCustomerCollection
         //}
 
 
-        [TestMethod]
-        public void FilterByCustomerIDNoneFound()
-        {
+        //[TestMethod]
+        //public void FilterByCustomerIDNoneFound()
+        //{
 
-            //create an instance of the filtered data 
-            clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
-            //apply a blank string (should return all records)
-            FilteredCustomer.FilterByCustomerID(1);
-            //test to see that the two values are the same
-            Assert.AreEqual(0, FilteredCustomer.Count);
+        //    //create an instance of the filtered data 
+        //    clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
+        //    //apply a blank string (should return all records)
+        //    FilteredCustomer.FilterByCustomerID(1);
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(0, FilteredCustomer.Count);
 
-        }
+        //}
 
-        [TestMethod]
-        public void FilterByCustomerIDTestDataFound()
-        {
+//        [TestMethod]
+//        public void FilterByCustomerIDTestDataFound()
+//        {
 
-            //create an instance of the filtered data 
-            clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
-            //var to store outcome
-            Boolean OK = true;
-            //apply a last name that doesnt exist
-            FilteredCustomer.FilterByCustomerID(2);
-            //check that the correct number of records are found
-            if (FilteredCustomer.Count == 2)
-            {
-                //check that the first record is ID 4
-                if (FilteredCustomer.CustomerList[0].CustomerID != 4)
-                {
-                    OK = false;
-
-
-                }
-                //check that the first record is ID 2
-                if (FilteredCustomer.CustomerList[0].CustomerID != 2)
-                {
-                    OK = false;
-                }
-                else
-                {
-                    OK = false;
-                }
-                //test to see that there are no records
-                Assert.IsTrue(OK);
-            }
+//            //create an instance of the filtered data 
+//            clsCustomerCollection FilteredCustomer = new clsCustomerCollection();
+//            //var to store outcome
+//            Boolean OK = true;
+//            //apply a last name that doesnt exist
+//            FilteredCustomer.FilterByCustomerID(2);
+//            //check that the correct number of records are found
+//            if (FilteredCustomer.Count == 2)
+//            {
+//                //check that the first record is ID 4
+//                if (FilteredCustomer.CustomerList[0].CustomerID != 4)
+//                {
+//                    OK = false;
 
 
-        }
-    }
-}
+//                }
+//                //check that the first record is ID 2
+//                if (FilteredCustomer.CustomerList[0].CustomerID != 2)
+//                {
+//                    OK = false;
+//                }
+//                else
+//                {
+//                    OK = false;
+//                }
+//                //test to see that there are no records
+//                Assert.IsTrue(OK);
+//            }
+
+
+//        }
+//    }
+//}

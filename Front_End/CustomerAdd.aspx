@@ -31,7 +31,7 @@
 
 
                <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" /></td>
-        <td> <asp:Button ID="btnCancel" runat="server" Text="Cancel" /></td>
+        <td> <asp:Button ID="btnCancel" runat="server" Text="Cancel" OnClick="btnCancel_Click" /></td>
 
         </tr>
          </table>

@@ -32,9 +32,11 @@ public partial class CustomerAdd : System.Web.UI.Page
 
         //create an instance of the staff 
         clsCustomerCollection Customer = new clsCustomerCollection();
-
+        DateTime dtjoined = DateTime.Now.Date;
+        string dj = Convert.ToString(dtjoined);
+         
         //validate the data on the web form 
-        Boolean OK = Customer.ThisCustomer.Valid(txtboxFirstName.Text,txtboxAddress.Text, txtboxPostcode.Text, txtboxContactNumber.Text, txtboxEmail.Text, txtboxDateJoined.Text);
+        Boolean OK = Customer.ThisCustomer.Valid(txtboxFirstName.Text,txtboxAddress.Text, txtboxPostcode.Text, txtboxContactNumber.Text, txtboxEmail.Text,dj);
         //if the data is OK them add it to the object 
         if (OK == true)
     
@@ -47,12 +49,12 @@ public partial class CustomerAdd : System.Web.UI.Page
             Customer.ThisCustomer.PostCode = Convert.ToString(txtboxPostcode.Text);
             Customer.ThisCustomer.ContactNumber = Convert.ToString(txtboxContactNumber.Text);
             Customer.ThisCustomer.EmailAddress = Convert.ToString(txtboxEmail.Text);
-            Customer.ThisCustomer.DateJoined = Convert.ToDateTime(txtboxDateJoined.Text);
+            Customer.ThisCustomer.DateJoined = Convert.ToDateTime(dj);
             Customer.ThisCustomer.Active = Active.Checked;
 
             //add the record
             Customer.Add();
-            Response.Redirect("MenuCustomers.aspx");
+            Response.Redirect("Customer.aspx");
         }
         else
         {
@@ -68,12 +70,12 @@ public partial class CustomerAdd : System.Web.UI.Page
         clsCustomerCollection Customer = new clsCustomerCollection();
 
         //validate the data on the web form 
-        Boolean OK = Customer.ThisCustomer.Valid(txtboxFirstName.Text, txtboxAddress.Text, txtboxPostcode.Text, txtboxContactNumber.Text, txtboxEmail.Text, txtboxDateJoined.Text);
+       // Boolean OK = Customer.ThisCustomer.Valid(txtboxFirstName.Text, txtboxAddress.Text, txtboxPostcode.Text, txtboxContactNumber.Text, txtboxEmail.Text, txtboxDateJoined.Text);
         //if the data is OK them add it to the object 
-        if (OK == true)
+       // if (OK == true)
         //if we are adding a new record
        
-        {
+       // {
             //get the data entered by the user 
             Customer.ThisCustomer.Find(CustomerId);
             Customer.ThisCustomer.Name = Convert.ToString(txtboxFirstName.Text);
@@ -86,18 +88,14 @@ public partial class CustomerAdd : System.Web.UI.Page
 
             //add the record
             Customer.Update();
-            Response.Redirect("MenuCustomers.aspx");
-        }
-        else
-        {
+            Response.Redirect("Customer.aspx");
+       // }
+        //else
+        //{
             //report an error 
-            lblError.Text = "There were problems with the data provided";
-        }
+          //  lblError.Text = "There were problems with the data provided";
+        //}
     }
-
-
-
-
 
     protected void btnSubmit_Click(object sender, EventArgs e)
     {
@@ -112,7 +110,7 @@ public partial class CustomerAdd : System.Web.UI.Page
             Update();
         }
         //all done so redirect  back to the main page
-        Response.Redirect("MenuCustomers.aspx");
+        Response.Redirect("Customer.aspx");
     }
 
     void DisplayCustomer()
@@ -130,7 +128,7 @@ public partial class CustomerAdd : System.Web.UI.Page
         //display the post code
         txtboxContactNumber.Text = MyCustomer.ThisCustomer.ContactNumber;
         //diaply the data added
-        txtboxDateJoined.Text = MyCustomer.ThisCustomer.DateJoined.ToString("dd/mm/yyyy");
+        txtboxDateJoined.Text = MyCustomer.ThisCustomer.DateJoined.ToShortDateString();
         //display the active state
         txtboxEmail.Text = MyCustomer.ThisCustomer.PostCode;
         //display the active state
@@ -138,4 +136,10 @@ public partial class CustomerAdd : System.Web.UI.Page
     }
 
 
+
+    protected void btnCancel_Click(object sender, EventArgs e)
+    {
+        //all done so redirect  back to the main page
+        Response.Redirect("Customer.aspx");
+    }
 }

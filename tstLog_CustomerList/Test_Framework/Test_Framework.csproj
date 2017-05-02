@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7EF4D157-BA3E-4E8B-8685-B3B887A1FC9F}</ProjectGuid>
+    <ProjectGuid>{8570DAF3-CC22-4633-9C67-6FD69652CFEF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>tstLog_CustomerList</RootNamespace>
@@ -53,8 +53,16 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTestCustomer.cs" />
-    <Compile Include="UnitTestCustomerCollection.cs" />
+    <Compile Include="tstCustomer.cs" />
+    <Compile Include="tstCustomerCollection.cs" />
+    <Compile Include="tstOrderCollection.cs" />
+    <Compile Include="tstOrderPage.cs" />
+    <Compile Include="tstStaff.cs" />
+    <Compile Include="tstStaffCollection.cs" />
+    <Compile Include="tstStock.cs" />
+    <Compile Include="tstStockCollection.cs" />
+    <Compile Include="tstSupplierCollection.cs" />
+    <Compile Include="tstSupplierPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibrary\ClassLibrary.csproj">
