@@ -10,6 +10,7 @@
     <asp:Button ID="btnHome" runat="server" Text="Home" Width="110px" OnClick="btnHome_Click" />
     <asp:Button ID="btnAdd" runat="server" Text="Add" Width="110px" OnClick="btnAdd_Click" />
     <asp:Button ID="btnEdit" runat="server" Text="Edit" Width="110px"  OnClick="btnEdit_Click" />
+
     <asp:Button ID="btnDelete" runat="server" Text="Delete" Width="110px" OnClick="btnDelete_Click" />
     <asp:Label ID="lblSearch" runat="server" Text="Search"></asp:Label>
     <asp:TextBox ID="txtboxsearch" runat="server"></asp:TextBox>

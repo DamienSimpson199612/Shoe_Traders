@@ -78,14 +78,14 @@ public partial class Customer : System.Web.UI.Page
         {
             lblError.Text = "Please enter valid Customer ID";
         }
-        string Name = txtboxsearch.Text;
+        int customerID = Convert.ToInt32(txtboxsearch.Text);
         //assign the results of the DisplayAddresses function to the record count var
-        RecordCount = DisplayCustomer(Name);
+        RecordCount = DisplayCustomer(customerID);
         //display the number of records found
         lblError.Text = RecordCount + " records found";
     }
 
-    Int32 DisplayCustomer(string Name)
+    Int32 DisplayCustomer(int customerID)
     {
         ///this function accepts one parameter - the post code to filter the list on
         ///it populates the list box with data from the middle layer class
@@ -114,7 +114,7 @@ public partial class Customer : System.Web.UI.Page
         //clear the lists of any existing items
         lstCustomer.Items.Clear();
         //call the filer by CustomerID 
-        Customer.FilterByCustomerID(Name);
+        Customer.FilterByCustomerID(customerID);
         //get the counts of records found 
         RecordCount = Customer.Count;
         ListItem NewItem1 = new ListItem("Name...." + "Address...." + "PostCode.... " + "Email...." + "ContactNumber.... " + "Active...." + "CustomerID....");
