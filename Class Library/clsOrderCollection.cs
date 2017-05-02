@@ -95,12 +95,13 @@ namespace Class_Library
         {
             //UPDATE RECORD BASED ON VALUES OF THIS ORDER
             clsDataConnection DB = new clsDataConnection();
-            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
+           
             DB.AddParameter("@OrderDate", mThisOrder.OrderDate);
             DB.AddParameter("@CustomerName", mThisOrder.CustomerName);
             DB.AddParameter("@Active", mThisOrder.Active);
             DB.AddParameter("@CustomerNo", mThisOrder.CustomerNo);
             DB.AddParameter("@NumberOfOrder", mThisOrder.NumberOfOrder);
+            DB.AddParameter("@OrderNo", mThisOrder.OrderNo);
             //execute stored procedure
             DB.Execute("sproc_tblOrder_Update");
         }

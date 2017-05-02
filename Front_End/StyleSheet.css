@@ -20,23 +20,48 @@ article {
     margin: 10% 40% 10% 30% ;
     font-family: 'Calibri', Helvetica, Arial, sans-serif;
     font-size: 140%;
+    float:left;
+}
+
+.articlestaff {
+    height: 10%;
+    width: 100%;
+    margin-left :10%;
+    font-family: 'Calibri', Helvetica, Arial, sans-serif;
+    font-size: 140%;
+        float:left;
 }
 img {
     left: 60%;
     top: 10%;
 }
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-yw4l{vertical-align:top}
 footer
 {
-    background-color: #ffffff;
+    background-color: #600;
     height: 10%;
     position: fixed;
     width: 100%;
     top: 90%;
     left: 0%;
 }
-#button1, #button2, #button3 {
 
-    display:inline-block;
-    float: left;
+
+.span {
+    width: 100%;
+    display: block;
+    background-color: #3CBC8D;
+    color: white;
 }
+.tblEdit{
 
+    background-color: white;
+}
+.mytext {
+    width: 100px;
+}

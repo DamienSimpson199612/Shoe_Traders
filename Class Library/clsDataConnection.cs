@@ -178,14 +178,7 @@ public class clsDataConnection
         //use the copmmand builder to generate the sql insert delete etc
         commandBuilder = new SqlCommandBuilder(dataChannel);
         //fill the data adapter
-        try
-        {
-            dataChannel.Fill(dataTable);
-        }
-        catch
-        {
-            throw new System.Exception("Could not get the data.  Check that you have the correct name for your stored procedure.");
-        }
+        dataChannel.Fill(dataTable);
         //close the connection
         connectionToDB.Close();
         //return the result of the stored procedure

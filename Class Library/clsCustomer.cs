@@ -134,7 +134,7 @@ namespace ClassLibrary
             //execute the stored procedure
             DB.Execute("sproc_Customers_FilterByCustomerID");
             //if one record is found (there should be either one or zero)
-            if (DB.Count == 1)
+            if(DB.Count ==1)
             {
                 //copy the data from the database to the private data members
                 mCustomerID = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerID"]);

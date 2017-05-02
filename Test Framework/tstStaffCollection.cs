@@ -1,8 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Class_Library;
 using System.Collections.Generic;
-using MyClassLibrary;
+using ClassLibrary;
 
 namespace Test_Framework
 {
@@ -266,54 +265,54 @@ namespace Test_Framework
         //}
 
 
-        [TestMethod]
-        public void FilterByStaffIDNoneFound()
-        {
+        //[TestMethod]
+        //public void FilterByStaffIDNoneFound()
+        //{
 
-            //create an instance of the filtered data 
-            clsStaffCollection FilteredStaff = new clsStaffCollection();
-            //apply a blank string (should return all records)
-            FilteredStaff.FilterByStaffID(3);
-            //test to see that the two values are the same
-            Assert.AreEqual(0, FilteredStaff.Count);
+        //    //create an instance of the filtered data 
+        //    clsStaffCollection FilteredStaff = new clsStaffCollection();
+        //    //apply a blank string (should return all records)
+        //    FilteredStaff.FilterByStaffID(3);
+        //    //test to see that the two values are the same
+        //    Assert.AreEqual(0, FilteredStaff.Count);
 
-        }
+        //}
 
-        [TestMethod]
-        public void FilterByStaffIDTestDataFound()
-        {
+        //[TestMethod]
+        //public void FilterByStaffIDTestDataFound()
+        //{
 
-            //create an instance of the filtered data 
-            clsStaffCollection FilteredStaff = new clsStaffCollection();
-            //var to store outcome
-            Boolean OK = true;
-            //apply a last name that doesnt exist
-            FilteredStaff.FilterByStaffID(2);
-            //check that the correct number of records are found
-            if (FilteredStaff.Count == 2)
-            {
-                //check that the first record is ID 4
-                if (FilteredStaff.StaffList[0].StaffID != 4)
-                {
-                    OK = false;
+        //    //create an instance of the filtered data 
+        //    clsStaffCollection FilteredStaff = new clsStaffCollection();
+        //    //var to store outcome
+        //    Boolean OK = true;
+        //    //apply a last name that doesnt exist
+        //    FilteredStaff.FilterByStaffID(2);
+        //    //check that the correct number of records are found
+        //    if (FilteredStaff.Count == 2)
+        //    {
+        //        //check that the first record is ID 4
+        //        if (FilteredStaff.StaffList[0].StaffID != 4)
+        //        {
+        //            OK = false;
 
 
-                }
-                //check that the first record is ID 2
-                if (FilteredStaff.StaffList[0].StaffID != 2)
-                {
-                    OK = false;
-                }
-                else
-                {
-                    OK = false;
-                }
-                //test to see that there are no records
-                Assert.IsTrue(OK);
-            }
+        //        }
+        //        //check that the first record is ID 2
+        //        if (FilteredStaff.StaffList[0].StaffID != 2)
+        //        {
+        //            OK = false;
+        //        }
+        //        else
+        //        {
+        //            OK = false;
+        //        }
+        //        //test to see that there are no records
+        //        Assert.IsTrue(OK);
+        //    }
 
 
         }
     }
-    }
+    
 

@@ -85,6 +85,7 @@
   <ItemGroup>
     <Content Include="Login_Screen.aspx" />
     <Content Include="Management_Screen.aspx" />
+    <Content Include="Supplier.aspx" />
     <Content Include="Saved_Staff.aspx" />
     <Content Include="Searched.aspx" />
     <Content Include="Staff.aspx" />

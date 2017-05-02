@@ -3,31 +3,30 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSite", "http://localhost:59225", "{8D098B46-4C6E-461F-8A82-F4819C21B555}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Framework", "Test Framework\Test Framework.csproj", "{77CDFFF9-8B9D-4B4C-BB06-9330A027136D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class Library", "Class Library\Class Library.csproj", "{30029452-BA29-46EB-B9F5-BBF30B1F03B3}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Front_End(1)", "Front_End\", "{92E9C9CD-1738-4A57-8C9C-5C29C4693D72}"
 	ProjectSection(WebsiteProperties) = preProject
-		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_59225"
-		Debug.AspNetCompiler.PhysicalPath = "E:\New folder (2)\Shoe_Traders\Project Work\WebSite\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59225\"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63923"
+		Debug.AspNetCompiler.PhysicalPath = "Front_End\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63923\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_59225"
-		Release.AspNetCompiler.PhysicalPath = "E:\New folder (2)\Shoe_Traders\Project Work\WebSite\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_59225\"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63923"
+		Release.AspNetCompiler.PhysicalPath = "Front_End\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63923\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "E:\New folder (2)\Shoe_Traders\Project Work\WebSite\"
-		DefaultWebSiteLanguage = "Visual C#"
+		VWDPort = "63923"
+		SlnRelativePath = "Front_End\"
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test Framework", "Test Framework\Test Framework.csproj", "{77CDFFF9-8B9D-4B4C-BB06-9330A027136D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class Library", "Class Library\Class Library.csproj", "{30029452-BA29-46EB-B9F5-BBF30B1F03B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +34,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8D098B46-4C6E-461F-8A82-F4819C21B555}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D098B46-4C6E-461F-8A82-F4819C21B555}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D098B46-4C6E-461F-8A82-F4819C21B555}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D098B46-4C6E-461F-8A82-F4819C21B555}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{77CDFFF9-8B9D-4B4C-BB06-9330A027136D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{77CDFFF9-8B9D-4B4C-BB06-9330A027136D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77CDFFF9-8B9D-4B4C-BB06-9330A027136D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +42,10 @@ Global
 		{30029452-BA29-46EB-B9F5-BBF30B1F03B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{30029452-BA29-46EB-B9F5-BBF30B1F03B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{30029452-BA29-46EB-B9F5-BBF30B1F03B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92E9C9CD-1738-4A57-8C9C-5C29C4693D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E9C9CD-1738-4A57-8C9C-5C29C4693D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92E9C9CD-1738-4A57-8C9C-5C29C4693D72}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{92E9C9CD-1738-4A57-8C9C-5C29C4693D72}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

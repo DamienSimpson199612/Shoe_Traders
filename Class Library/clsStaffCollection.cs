@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System;
 
-namespace Class_Library
+namespace ClassLibrary
 {
     public class clsStaffCollection
     {
@@ -117,13 +117,13 @@ namespace Class_Library
             DB.Execute("sproc_Staff_Update");
         }
 
-        public void FilterByStaffID(int StaffID)
+        public void FilterByStaffID(string name)
         {
             //filters the record based on a full or partial postcode
             //connect to the database 
             clsDataConnection DB = new clsDataConnection();
             //send the lastname parameter to the database
-            DB.AddParameter("@StaffID", StaffID);
+            DB.AddParameter("@Name", name);
             //execute the stored procedure
             DB.Execute("sproc_Staff_FilterByStaffID");
             //populate the array list with data table 

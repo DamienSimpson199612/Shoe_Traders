@@ -153,11 +153,13 @@ namespace Test_Framework
             Int32 PrimaryKey = 0;
             //set the properties of the test project
             TestItem.Active = true;
-            TestItem.CustomerName = "Steven Martin";
-            TestItem.CustomerNo = 3;
-            TestItem.OrderDate = DateTime.Now.Date;
-
-            TestItem.NumberOfOrder = 7;
+            TestItem.CustomerName = "Boris Johnson";
+            TestItem.CustomerNo = 2;
+            TestItem.OrderDate = Convert.ToDateTime("02/02/2017");
+            TestItem.NumberOfOrder = 1;
+            TestItem.OrderNo = 2;
+            
+            
             //assign the data propety 
             AllOrders.ThisOrder = TestItem;
             //add the record
@@ -166,16 +168,19 @@ namespace Test_Framework
             TestItem.OrderNo = PrimaryKey;
             //modidfy the test data
             TestItem.Active = false;
-            TestItem.CustomerName = "Jonathon Bridge";
-            TestItem.CustomerNo = 5;
+            TestItem.CustomerName = "Niliesh O";
+            TestItem.CustomerNo = 1;
             TestItem.OrderDate = DateTime.Now.Date;
-            TestItem.NumberOfOrder = 6;
+            TestItem.NumberOfOrder = 1;
+            TestItem.OrderNo = 2;
             //find the record
-            AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.ThisOrder = TestItem;
+            
             //delete the record
             AllOrders.Update();
+            AllOrders.ThisOrder.Find(PrimaryKey);
             //now find the record
-            Boolean Found = AllOrders.ThisOrder.Find(PrimaryKey);
+            AllOrders.ThisOrder.Find(PrimaryKey);
             Assert.AreEqual(AllOrders.ThisOrder, TestItem);
         }
         [TestMethod]

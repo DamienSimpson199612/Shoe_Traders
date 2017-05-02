@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Class_Library
+namespace ClassLibrary
 {
     public class clsStaff
     {
@@ -181,26 +181,26 @@ namespace Class_Library
         {
 
             //create an instance if the data connection
-            clsDataConnection staffDB = new clsDataConnection();
+            clsDataConnection DB = new clsDataConnection();
             //add the parameter for the staffID to search for
-            staffDB.AddParameter("@StaffID", StaffID);
+            DB.AddParameter("@StaffID", StaffID);
             //execute the stored procedure
-            staffDB.Execute("sproc_Staff_FilterByStaffID");
+            DB.Execute("sproc_Staff_FilterByStaffID");
             //if one recird is found (there should be either one or zero)
-            if (staffDB.Count == 1)
+            if (DB.Count == 1)
             {
                 //copy the data the database to the private data members
-                mActive = Convert.ToBoolean(staffDB.DataTable.Rows[0]["Active"]);
-                mStaffID = Convert.ToInt32(staffDB.DataTable.Rows[0]["StaffID"]);
-                mFirstName = Convert.ToString(staffDB.DataTable.Rows[0]["FirstName"]);
-                mLastName = Convert.ToString(staffDB.DataTable.Rows[0]["LastName"]);
-                mAddress = Convert.ToString(staffDB.DataTable.Rows[0]["Address"]);
-                mCounty = Convert.ToString(staffDB.DataTable.Rows[0]["County"]);
-                mPostcode = Convert.ToString(staffDB.DataTable.Rows[0]["Postcode"]);
-                mMobileNo = Convert.ToString(staffDB.DataTable.Rows[0]["MobileNo"]);
-                mPayrollNo = Convert.ToString(staffDB.DataTable.Rows[0]["PayrollNo"]);
-                mRoleType = Convert.ToString(staffDB.DataTable.Rows[0]["RoleType"]);
-                mTrainingCompleted = Convert.ToString(staffDB.DataTable.Rows[0]["TrainingCompleted"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                mStaffID = Convert.ToInt32(DB.DataTable.Rows[0]["StaffID"]);
+                mFirstName = Convert.ToString(DB.DataTable.Rows[0]["FirstName"]);
+                mLastName = Convert.ToString(DB.DataTable.Rows[0]["LastName"]);
+                mAddress = Convert.ToString(DB.DataTable.Rows[0]["Address"]);
+                mCounty = Convert.ToString(DB.DataTable.Rows[0]["County"]);
+                mPostcode = Convert.ToString(DB.DataTable.Rows[0]["Postcode"]);
+                mMobileNo = Convert.ToString(DB.DataTable.Rows[0]["MobileNo"]);
+                mPayrollNo = Convert.ToString(DB.DataTable.Rows[0]["PayrollNo"]);
+                mRoleType = Convert.ToString(DB.DataTable.Rows[0]["RoleType"]);
+                mTrainingCompleted = Convert.ToString(DB.DataTable.Rows[0]["TrainingCompleted"]);
                 //return that everything is okay worked OK
                 return true;
             }

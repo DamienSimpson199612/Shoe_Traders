@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MyClassLibrary;
 
-namespace Class_Library
+namespace ClassLibrary
 {
     public class clsSupplierCollection
     {
@@ -11,22 +11,23 @@ namespace Class_Library
         List<clsSupplierPage> mSupplierList = new List<clsSupplierPage>();
         //private data member thisStaff
         clsSupplierPage mThisSupplier = new clsSupplierPage();
+       
 
         //public property for ThisStaff
-        public List<clsSupplierPage> SupplierList
+        public clsSupplierPage ThisSupplier
         {
             get
             {
                 //return the private data
-                return mSupplierList;
+                return mThisSupplier;
             }
          set
             {
                 //set the private data
-                mSupplierList = value;
+                mThisSupplier = value;
             }
         }
-        //
+        
         public int Count
         {
             get
@@ -40,20 +41,20 @@ namespace Class_Library
             }
         }
 
-
-        public clsSupplierPage ThisSupplier
+        public List<clsSupplierPage> SupplierList
         {
             get
             {
                 //return the private data
-                return mThisSupplier;
+                return mSupplierList;
             }
             set
             {
-                //set th eprivate data
-                mThisSupplier = value;
+                //set the private data
+                mSupplierList = value;
             }
         }
+
 
         public int Add()
         {

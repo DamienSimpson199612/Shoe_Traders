@@ -1,6 +1,6 @@
 ﻿using System;
-
-namespace MyClassLibrary
+using System.Collections.Generic;
+namespace ClassLibrary
 {
     public class clsSupplierPage
     {
@@ -232,7 +232,7 @@ namespace MyClassLibrary
             //return value Ok
             return OK;
            }
-        }  
+    }  
     }
 
 
